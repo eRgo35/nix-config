@@ -114,6 +114,7 @@
       ntfs3g
       dosfstools
       woeusb
+      python3
     ])
     
     ++

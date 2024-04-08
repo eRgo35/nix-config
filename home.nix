@@ -19,7 +19,7 @@ let
     lsd = "eza -laD";
 
     cls="clear";
-    df="df -ahiT --total";
+    # df="df -ahiT --total";
     userlist="cut -d: -f1 /etc/passwd";
     free="free -mt";
     du="du -ach | sort -h";
