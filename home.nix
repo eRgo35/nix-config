@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 let
   myAliases = {
     ".." = "cd ..";
@@ -53,45 +53,57 @@ in {
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  imports = [
+    ./apps/neovim.nix
+  ];
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    # zsh stuff
-    zsh
-    zsh-autosuggestions
-    zsh-powerlevel10k
-    thefuck
+  home.packages = 
+    (with pkgs; [
+      # zsh stuff
+      zsh
+      zsh-autosuggestions
+      zsh-powerlevel10k
+      thefuck
 
-    # graphics
-    tuxpaint
-    krita    
+      # graphics
+      tuxpaint
+      krita    
 
-    # tools
-    kitty
-    rofi 
-    git
-    eza
-    yt-dlp
-    ffmpeg
-    texliveFull
+      # tools
+      kitty
+      rofi 
+      git
+      eza
+      yt-dlp
+      ffmpeg
+      texliveFull
 
-    # media
-    spotify
-    vlc
-    mpv
-    obs-studio
+      # media
+      spotify
+      vlc
+      mpv
+      obs-studio
 
-    # desktop
-    firefox
-    discord
-    telegram-desktop
+      # desktop
+      firefox
+      discord
+      telegram-desktop
     
-    # gaming
-    prismlauncher
-    steam     
+      # gaming
+      prismlauncher
+      steam     
 
-    # custom
-  ];
+      # custom
+    ])
+
+    ++
+
+    (with pkgs-unstable; [
+      # I need fresssh stuff
+      neovim
+    ]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -111,16 +123,6 @@ in {
   home.sessionVariables = {
      EDITOR = "nvim";
   };
-
-  #programs.neovim = {
-  #  enable = true;
-  #
-  #  viAlias = true;
-  #  vimAlias = true;
-  #  vimdiffAlias = true;
-  #
-  #  defaultEditor = true;
-  # };
 
   programs.bash = {
     enable = true;

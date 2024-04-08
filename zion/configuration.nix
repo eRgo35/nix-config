@@ -163,8 +163,6 @@
     ++
    
     (with pkgs-unstable; [
-      neovim
-      
       cmake
       gcc
       clang
