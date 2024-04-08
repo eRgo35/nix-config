@@ -1,5 +1,5 @@
 {
-  description = "Zion Flake!";
+  description = "Mike's Flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.11";
@@ -14,11 +14,27 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+    systemSettings = {
+      profile = "thor"; # select 'thor' or 'zion'
+    };
   in {
     nixosConfigurations = {
       zion = lib.nixosSystem {
         inherit system;
-        modules = [ ./configuration.nix ];
+        modules = [
+          (./. + ("/" + systemSettings.profile)
+              + "/configuration.nix")
+        ];
+        specialArgs = {
+          inherit pkgs-unstable;
+        };
+      };
+      thor = lib.nixosSystem {
+        inherit system;
+        modules = [
+          (./. + ("/" + systemSettings.profile)
+              + "/configuration.nix")
+        ];
         specialArgs = {
           inherit pkgs-unstable;
         };
@@ -27,7 +43,10 @@
     homeConfigurations = {
       mike = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [
+          (./. + ("/" + systemSettings.profile)
+              + "/configuration.nix")
+        ];
         extraSpecialArgs = {
           inherit pkgs-unstable;
         };
