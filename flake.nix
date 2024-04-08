@@ -44,8 +44,7 @@
       mike = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          (./. + ("/" + systemSettings.profile)
-              + "/configuration.nix")
+          ./home.nix
         ];
         extraSpecialArgs = {
           inherit pkgs-unstable;
