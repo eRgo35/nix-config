@@ -56,30 +56,41 @@ in {
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    # zsh stuff
     zsh
     zsh-autosuggestions
     zsh-powerlevel10k
     thefuck
 
-    kitty
-    rofi
-    git
-    eza
-    
+    # graphics
     tuxpaint
     krita    
 
-    # spotify
+    # tools
+    kitty
+    rofi 
+    git
+    eza
+    yt-dlp
+    ffmpeg
+    texliveFull
+
+    # media
+    spotify
     vlc
     mpv
-    yt-dlp
     obs-studio
-    ffmpeg
 
-    # discord
+    # desktop
+    firefox
+    discord
     telegram-desktop
     
+    # gaming
     prismlauncher
+    steam     
+
+    # custom
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

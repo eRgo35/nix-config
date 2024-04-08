@@ -6,50 +6,44 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-alien.url = "github:thiagokokada/nix-alien";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ...}: 
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, nix-alien, ...}: 
   let 
     lib = nixpkgs.lib;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     systemSettings = {
-      profile = "thor"; # select 'thor' or 'zion'
+      profile = "zion"; # select 'thor' or 'zion'
     };
   in {
     nixosConfigurations = {
-      zion = lib.nixosSystem {
+      system = lib.nixosSystem {
         inherit system;
         modules = [
           (./. + ("/" + systemSettings.profile)
               + "/configuration.nix")
-        ];
-        specialArgs = {
-          inherit pkgs-unstable;
-        };
-      };
-      thor = lib.nixosSystem {
-        inherit system;
-        modules = [
-          (./. + ("/" + systemSettings.profile)
-              + "/configuration.nix")
+         
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+
+              users.mike = import ./home.nix;
+              
+              extraSpecialArgs = {
+                inherit pkgs-unstable;
+              };
+            };
+          }
         ];
         specialArgs = {
           inherit pkgs-unstable;
         };
       };
     };
-    homeConfigurations = {
-      mike = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./home.nix
-        ];
-        extraSpecialArgs = {
-          inherit pkgs-unstable;
-        };
-      };
-    }; 
   };
 }

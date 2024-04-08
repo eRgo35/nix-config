@@ -133,10 +133,7 @@
     isNormalUser = true;
     description = "Mike";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = [
-      pkgs.discord
-      pkgs.spotify
-    ];
+    packages = [];
   };
 
   # List packages installed in system profile. To search, run:
@@ -149,19 +146,29 @@
       neofetch
       zsh
       pavucontrol
-      home-manager
-      firefox
       htop
       nerdfonts
       ntfs3g
       dosfstools
       woeusb
+
+      python3
+
+      # cmake
+      # clang
+      # gcc
+      # gtest
     ])
     
     ++
    
     (with pkgs-unstable; [
       neovim
+      
+      cmake
+      gcc
+      clang
+      gtest
     ]);
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -191,12 +198,22 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix = {
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://cache.nixos.org/"
+      ];
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+    };
+  };
 
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = (_: true);
   };
-
 }
