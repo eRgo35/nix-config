@@ -53,9 +53,9 @@ in {
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  imports = [
-    ./apps/neovim.nix
-  ];
+  # imports = [
+  #   ./apps/neovim.nix
+  # ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -102,7 +102,7 @@ in {
 
     (with pkgs-unstable; [
       # I need fresssh stuff
-      neovim
+      # neovim
     ]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -122,6 +122,17 @@ in {
 
   home.sessionVariables = {
      EDITOR = "nvim";
+  };
+
+  programs.neovim = {
+    enable = true;
+    package = pkgs-unstable.neovim-unwrapped;
+
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+
+    defaultEditor = true;
   };
 
   programs.bash = {
