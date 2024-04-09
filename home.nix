@@ -94,6 +94,7 @@ in {
       discord
       telegram-desktop
       libreoffice-fresh
+      vscodium
     
       # gaming
       prismlauncher
