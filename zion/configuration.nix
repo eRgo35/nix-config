@@ -154,6 +154,8 @@
 
       python3
 
+      steam-run
+
       # cmake
       # clang
       # gcc

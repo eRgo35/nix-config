@@ -90,6 +90,7 @@ in {
       firefox
       discord
       telegram-desktop
+      libreoffice-fresh
     
       # gaming
       prismlauncher
