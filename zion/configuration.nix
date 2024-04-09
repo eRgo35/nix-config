@@ -42,12 +42,23 @@
     LC_TIME = "pl_PL.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    layout = "pl";
+    xkbVariant = "";
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+    displayManager = {
+      lightdm = {
+        enable = true;
+      };
+    };
+
+    desktopManager = {
+      xfce = {
+        enable = true;
+      };
+    };
+  };
   
   # Enable OpenGL
   hardware.opengl = {
@@ -96,12 +107,6 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "pl";
-    xkbVariant = "";
-  };
-
   # Configure console keymap
   console.keyMap = "pl2";
 
@@ -147,7 +152,6 @@
       zsh
       pavucontrol
       htop
-      nerdfonts
       ntfs3g
       dosfstools
       woeusb
@@ -170,6 +174,8 @@
       clang
       gtest
     ]);
+
+  fonts.packages = with pkgs; [ nerdfonts ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

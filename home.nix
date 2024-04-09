@@ -71,8 +71,11 @@ in {
       tuxpaint
       krita    
 
-      # tools
+      # terminal
       kitty
+      kitty-themes
+
+      # tools
       rofi 
       git
       eza
@@ -95,6 +98,9 @@ in {
       # gaming
       prismlauncher
       steam     
+
+      # development
+      neovide
 
       # custom
     ])
@@ -123,6 +129,18 @@ in {
 
   home.sessionVariables = {
      EDITOR = "nvim";
+  };
+
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "FiraCode Nerd Font";
+      size = 12;
+    };
+
+    theme = "Gruvbox Dark";
+    #Also available: Catppuccin-Frappe Catppuccin-Latte Catppuccin-Macchiato Catppuccin-Mocha
+    # See all available kitty themes at: https://github.com/kovidgoyal/kitty-themes/blob/46d9dfe230f315a6a0c62f4687f6b3da20fd05e4/themes.json
   };
 
   programs.neovim = {
