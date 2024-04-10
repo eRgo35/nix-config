@@ -11,7 +11,13 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    useOSProber = true;
+    device = "/dev/nvme0n1";
+    efiSupport = true;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "zion"; # Define your hostname.
