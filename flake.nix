@@ -15,16 +15,35 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-    systemSettings = {
-      profile = "zion"; # select 'thor' or 'zion'
-    };
   in {
     nixosConfigurations = {
-      system = lib.nixosSystem {
+      zion = lib.nixosSystem {
         inherit system;
         modules = [
-          (./. + ("/" + systemSettings.profile)
-              + "/configuration.nix")
+          zion/configuration.nix
+         
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+
+              users.mike = import ./home.nix;
+              
+              extraSpecialArgs = {
+                inherit pkgs-unstable;
+              };
+            };
+          }
+        ];
+        specialArgs = {
+          inherit pkgs-unstable;
+        };
+      };
+      thor = lib.nixosSystem {
+        inherit system;
+        modules = [
+          thor/configuration.nix
          
           home-manager.nixosModules.home-manager
           {

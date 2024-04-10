@@ -42,22 +42,28 @@
     LC_TIME = "pl_PL.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+    layout = "pl";
+    xkbVariant = "";
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+    displayManager = {
+      lightdm = {
+        enable = true;
+      };
+    };
 
+    desktopManager = {
+      xfce = {
+        enable = true;
+      };
+    };
+  };
+
+  # I use zsh btw
   environment.shells = with pkgs; [ bash zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "pl";
-    xkbVariant = "";
-  };
 
   # Configure console keymap
   console.keyMap = "pl2";
@@ -90,15 +96,11 @@
     isNormalUser = true;
     description = "Mike";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = [
-      pkgs.discord
-      pkgs.spotify
-    ];
+    packages = [];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = 
     (with pkgs; [
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -107,21 +109,31 @@
       neofetch
       zsh
       pavucontrol
-      home-manager
-      firefox
       htop
-      nerdfonts
       ntfs3g
       dosfstools
       woeusb
+
       python3
+
+      steam-run
+
+      # cmake
+      # clang
+      # gcc
+      # gtest
     ])
     
     ++
    
     (with pkgs-unstable; [
-      neovim
+      cmake
+      gcc
+      clang
+      gtest
     ]);
+
+  fonts.packages = with pkgs; [ nerdfonts ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -149,6 +161,19 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
+
+  nix = {
+    settings = {
+      experimental-features = ["nix-command" "flakes"];
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://cache.nixos.org/"
+      ];
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+    };
+  };
 
   # Allow unfree packages
   nixpkgs.config = {
