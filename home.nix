@@ -82,6 +82,7 @@ in {
       yt-dlp
       ffmpeg
       texliveFull
+      plantuml
 
       # media
       spotify
