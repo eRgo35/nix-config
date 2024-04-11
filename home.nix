@@ -81,8 +81,8 @@ in {
       eza
       yt-dlp
       ffmpeg
-      texliveFull
-      plantuml
+      # texliveFull
+      texlive.combined.scheme-full
 
       # media
       spotify
