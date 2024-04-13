@@ -83,6 +83,8 @@ in {
       ffmpeg
       # texliveFull
       texlive.combined.scheme-full
+      pgf-umlcd
+      pgf-umlsd
 
       # media
       spotify
@@ -105,6 +107,7 @@ in {
       neovide
 
       # custom
+      (callPackage ./pkgs/tikz-uml/tikzuml.nix {})
     ])
 
     ++
