@@ -90,8 +90,6 @@ in {
       neofetch
       pavucontrol
       htop
-      ntfs3g
-      dosfstools
       woeusb
       steam-run
       unzip
