@@ -149,16 +149,16 @@ in {
     # See all available kitty themes at: https://github.com/kovidgoyal/kitty-themes/blob/46d9dfe230f315a6a0c62f4687f6b3da20fd05e4/themes.json
   };
 
-  programs.neovim = {
-    enable = true;
-    package = pkgs-unstable.neovim-unwrapped;
-
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-
-    defaultEditor = true;
-  };
+  #programs.neovim = {
+  #  enable = true;
+  #  package = pkgs-unstable.neovim-unwrapped;
+#
+ #   viAlias = true;
+  #  vimAlias = true;
+   # vimdiffAlias = true;
+#
+ #   defaultEditor = true;
+ # };
 
   programs.bash = {
     enable = true;
