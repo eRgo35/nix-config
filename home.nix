@@ -107,6 +107,11 @@ in {
 
       # development
       neovide
+      clang
+      clang-tools
+      cargo
+      bash
+      nodejs
 
       # custom
       (callPackage ./pkgs/tikz-uml/tikzuml.nix {})
@@ -177,6 +182,7 @@ in {
 
     initExtra = ''
       [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
+      eval "$(zoxide init zsh)"
     '';
     plugins = [
       {
