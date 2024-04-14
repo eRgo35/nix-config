@@ -165,6 +165,7 @@
       python3
 
       steam-run
+      unzip
 
       # cmake
       # clang
