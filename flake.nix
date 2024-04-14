@@ -4,12 +4,12 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-alien.url = "github:thiagokokada/nix-alien";
   };
 
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, nix-alien, ...}: 
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ...}: 
   let 
     lib = nixpkgs.lib;
     system = "x86_64-linux";

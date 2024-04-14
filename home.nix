@@ -101,6 +101,7 @@ in {
     
       # gaming
       prismlauncher
+      classicube
       steam     
 
       # development
