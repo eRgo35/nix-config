@@ -103,35 +103,11 @@
   # $ nix search wget
   environment.systemPackages = 
     (with pkgs; [
-      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      wget
-      git
-      neofetch
-      zsh
-      pavucontrol
-      htop
-      ntfs3g
-      dosfstools
-      woeusb
-
-      python3
-
-      steam-run
-      unzip
-
-      # cmake
-      # clang
-      # gcc
-      # gtest
+      # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      #wget
     ])
-    
     ++
-   
     (with pkgs-unstable; [
-      cmake
-      gcc
-      clang
-      gtest
     ]);
 
   fonts.packages = with pkgs; [ nerdfonts ];

@@ -95,6 +95,7 @@ in {
       woeusb
       steam-run
       unzip
+      gnome.gnome-keyring
 
       # media
       spotify
@@ -153,7 +154,9 @@ in {
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-
+  
+  services.gnome-keyring.enable = true;
+    
   home.sessionVariables = {
      EDITOR = "nvim";
   };
