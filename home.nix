@@ -109,6 +109,7 @@ in {
       libreoffice-fresh
       vscodium
       neovide
+      lunarvim
     
       # gaming
       prismlauncher
