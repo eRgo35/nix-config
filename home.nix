@@ -78,6 +78,7 @@ in {
       # tools
       rofi 
       git
+      wget
       eza
       yt-dlp
       ffmpeg
@@ -86,6 +87,14 @@ in {
       pgf-umlcd
       pgf-umlsd
       zoxide
+      neofetch
+      pavucontrol
+      htop
+      ntfs3g
+      dosfstools
+      woeusb
+      steam-run
+      unzip
 
       # media
       spotify
@@ -99,6 +108,7 @@ in {
       telegram-desktop
       libreoffice-fresh
       vscodium
+      neovide
     
       # gaming
       prismlauncher
@@ -106,12 +116,15 @@ in {
       steam     
 
       # development
-      neovide
       clang
       clang-tools
       cargo
       bash
       nodejs
+      python3
+      cmake
+      gtest
+      boost
 
       # custom
       (callPackage ./pkgs/tikz-uml/tikzuml.nix {})
