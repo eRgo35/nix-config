@@ -110,6 +110,7 @@ in {
       vscodium
       neovide
       lunarvim
+      evolution
     
       # gaming
       prismlauncher
