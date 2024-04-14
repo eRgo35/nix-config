@@ -85,6 +85,7 @@ in {
       texlive.combined.scheme-full
       pgf-umlcd
       pgf-umlsd
+      zoxide
 
       # media
       spotify
