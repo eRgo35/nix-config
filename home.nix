@@ -93,6 +93,7 @@ in {
       steam-run
       unzip
       gnome.gnome-keyring
+      gnome.adwaita-icon-theme
 
       # media
       spotify
@@ -105,7 +106,8 @@ in {
       discord
       telegram-desktop
       libreoffice-fresh
-      vscodium
+      # vscodium
+      vscode
       neovide
       lunarvim
       evolution
