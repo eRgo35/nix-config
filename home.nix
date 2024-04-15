@@ -65,7 +65,6 @@ in {
       zsh
       zsh-autosuggestions
       zsh-powerlevel10k
-      thefuck
 
       # graphics
       tuxpaint
@@ -110,6 +109,7 @@ in {
       neovide
       lunarvim
       evolution
+      rstudio
     
       # gaming
       prismlauncher
@@ -218,7 +218,7 @@ in {
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "thefuck" ];
+      plugins = [ "git" ];
     };
 
   };
