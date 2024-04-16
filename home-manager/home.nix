@@ -57,6 +57,9 @@ in {
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./features/cli 
+    ./features/kitty.nix
+    ./features/neovim.nix
   ];
 
   nixpkgs = {
@@ -140,6 +143,7 @@ in {
     unzip
     gnome.gnome-keyring
     gnome.adwaita-icon-theme
+    R
 
     # > media <
     spotify
@@ -152,7 +156,7 @@ in {
     discord
     telegram-desktop
     libreoffice-fresh
-    # vscodium
+    vscodium
     vscode
     neovide
     lunarvim
@@ -180,97 +184,6 @@ in {
     
   home.sessionVariables = {
      EDITOR = "nvim";
-  };
-
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "FiraCode Nerd Font";
-      size = 12;
-    };
-
-    theme = "Gruvbox Dark";
-    #Also available: Catppuccin-Frappe Catppuccin-Latte Catppuccin-Macchiato Catppuccin-Mocha
-    # See all available kitty themes at: https://github.com/kovidgoyal/kitty-themes/blob/46d9dfe230f315a6a0c62f4687f6b3da20fd05e4/themes.json
-  };
-
-  programs.neovim = {
-    enable = true;
-    package = pkgs.unstable.neovim-unwrapped;
-
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-
-    defaultEditor = true;
-  };
-
-  programs.bash = {
-    enable = true;
-    shellAliases = myAliases;
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-
-    history.size = 10000000;
-    history.path = "${config.xdg.dataHome}/zsh/history";
-
-    shellAliases = myAliases;
-
-    initExtra = ''
-      [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
-      eval "$(zoxide init zsh)"
-    '';
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-    ];
-
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-      #  { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
-      ];
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-    };
-
-  };
-
-  programs.git = {
-    enable = true; 
-    userName = "Michał Czyż";
-    userEmail = "mike@c2yz.com";
-    signing = {
-      key = "78D4829A477DAB25";
-      signByDefault = true;
-    };
-    extraConfig = {
-      push = {
-        default = "simple";
-      };
-      rerere = {
-        enable = true;
-      };
-      column = {
-        ui = "auto";
-      };
-      branch = {
-        sort = "-committerdate";
-      };
-      init = {
-        defaultBranch = "main";
-      };
-    };
   };
 
   # Let Home Manager install and manage itself.
