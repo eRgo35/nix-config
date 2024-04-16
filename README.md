@@ -31,11 +31,11 @@ cd ~/.dots
 Apply system configuration
 
 ```bash 
-sudo nixos-rebuild switch --flake .#hostname
+sudo nixos-rebuild switch --flake .#host
 ```
 
 Apply user configuration
 
 ```bash 
-home-manager switch --flake .#mike@zion
+home-manager switch --flake .#user@host
 ```
