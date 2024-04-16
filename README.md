@@ -1,4 +1,4 @@
-# NixOS Configuration
+# :snowflake: NixOS Configuration
 
 Here is my global NixOS configuration
 
