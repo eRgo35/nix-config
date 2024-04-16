@@ -2,7 +2,7 @@
   imports = [
     ./bash.nix
     ./git.nix
-    ./zsh.nix
+    ./zsh
   ];
   # home.packages = with pkgs; [];
 }
