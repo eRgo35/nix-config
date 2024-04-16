@@ -19,7 +19,7 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 Clone this repo
 
 ```bash 
-git clone https://github.com/eRgo35/nixos ~/.dots
+git clone https://github.com/eRgo35/nix-config ~/.dots
 ```
 
 ```bash 
