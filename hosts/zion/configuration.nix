@@ -225,6 +225,8 @@
     ntfs3g
     dosfstools
     unstable.nh
+    nix-output-monitor
+    nvd
   ]);
 
   environment.sessionVariables = {
