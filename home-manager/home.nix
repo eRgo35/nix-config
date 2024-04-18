@@ -84,6 +84,8 @@
     kitty
     kitty-themes
 
+    hyprland
+
     # > tools <
     rofi 
     git
