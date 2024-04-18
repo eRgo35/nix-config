@@ -224,7 +224,12 @@
     # wget
     ntfs3g
     dosfstools
+    nh
   ]);
+
+  environment.sessionVariables = {
+    FLAKE = "/home/mike/.dots";
+  };
 
   fonts.packages = with pkgs; [ nerdfonts ];
 
