@@ -224,7 +224,7 @@
     # wget
     ntfs3g
     dosfstools
-    nh
+    unstable.nh
   ]);
 
   environment.sessionVariables = {
