@@ -122,19 +122,19 @@
     xkbVariant = "";
 
     displayManager = {
-      # lightdm = {
-      #   enable = true;
-      # };
+      lightdm = {
+        enable = false;
+      };
       startx = {
         enable = true;
       };
     };
 
-    # desktopManager = {
-    #   xfce = {
-    #     enable = true;
-    #   };
-    # };
+    desktopManager = {
+      xfce = {
+        enable = false;
+      };
+    };
   };
   
   # Enable OpenGL
