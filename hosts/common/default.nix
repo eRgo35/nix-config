@@ -8,6 +8,7 @@
 }: {
   imports = [
     ./locale.nix
+    ./gui.nix
     ./packages.nix
     ./services.nix
     ./users.nix
