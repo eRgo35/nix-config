@@ -19,6 +19,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./features/cli 
+    ./features/desktop/hyprland
     ./features/kitty.nix
     ./features/neovim.nix
   ];

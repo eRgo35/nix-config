@@ -7,14 +7,14 @@
     gtk3
     imv
     mimeo
-    primary-xwayland
+    # primary-xwayland
     pulseaudio
     slurp
     waypipe
     wf-recorder
     wl-clipboard
     wl-mirror
-    wl-mirror-pick
+    # wl-mirror-pick
     xdg-utils
     ydotool
   ];
@@ -25,5 +25,5 @@
     LIBSEAT_BACKEND = "logind";
   };
 
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-wlr];
+  # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-wlr];
 }
