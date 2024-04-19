@@ -18,4 +18,8 @@
   ]);
 
   fonts.packages = with pkgs; [ nerdfonts ];
+
+  environment.sessionVariables = {
+    FLAKE = "/home/mike/.dots";
+  };
 }

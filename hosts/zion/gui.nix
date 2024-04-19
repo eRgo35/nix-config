@@ -45,5 +45,17 @@
       };
     };
     
+    xrandrHeads = [
+      {
+        output = "HDMI-0";
+      }
+      {
+        output = "DP-2";
+        primary = true;
+      }
+      {
+        output = "DP-0";
+      }
+    ];
   };
 }

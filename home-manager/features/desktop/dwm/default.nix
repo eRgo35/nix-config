@@ -9,7 +9,7 @@
     dmenu
     st
     dunst
-    picom
+    unstable.picom
     xss-lock
     flameshot
     xdg-desktop-portal-gtk
@@ -20,5 +20,10 @@
     xorg.setxkbmap
     gnome.gnome-keyring
     feh
+    gruvbox-dark-gtk
+    kde-gruvbox
+    gruvbox-dark-icons-gtk
+    alsaUtils
+
   ];
 }
