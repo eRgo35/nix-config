@@ -7,7 +7,6 @@
   ...
 }: {
   imports = [
-    ./gui.nix
     ./locale.nix
     ./packages.nix
     ./services.nix
