@@ -33,6 +33,9 @@
     windowManager = {
       dwm = {
         enable = true;
+        package = pkgs.dwm.overrideAttrs {
+          src = /home/mike/Projects/dwm;
+        };
       };
     };
 

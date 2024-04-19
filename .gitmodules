@@ -1,0 +1,3 @@
+[submodule "home-manager/features/desktop/dwm/dwm"]
+	path = home-manager/features/desktop/dwm/dwm
+	url = git@github.com:eRgo35/dwm.git

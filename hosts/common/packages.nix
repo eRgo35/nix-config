@@ -14,6 +14,7 @@
     unstable.nh
     nix-output-monitor
     nvd
+    xorg.xrandr
   ]);
 
   fonts.packages = with pkgs; [ nerdfonts ];
