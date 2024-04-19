@@ -185,6 +185,9 @@
     # wget
     ntfs3g
     dosfstools
+    unstable.nh
+    nix-output-monitor
+    nvd
   ]);
 
   fonts.packages = with pkgs; [ nerdfonts ];
