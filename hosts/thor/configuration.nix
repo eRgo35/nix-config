@@ -123,13 +123,16 @@
 
     displayManager = {
       lightdm = {
+        enable = false;
+      };
+      startx = {
         enable = true;
       };
     };
 
     desktopManager = {
       xfce = {
-        enable = true;
+        enable = false;
       };
     };
   };
