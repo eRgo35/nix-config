@@ -2,7 +2,9 @@
   services.flameshot = {
     enable = true;
     settings = {
-      showStartupLaunchMessage = false;
+      General = {
+        showStartupLaunchMessage = false;
+      };
     };
   };
 }
