@@ -8,7 +8,7 @@ in {
   ];
 
   programs.zsh = {
-    enable = true;
+    # enable = true;
     enableCompletion = true;
 
     history.size = 10000000;
