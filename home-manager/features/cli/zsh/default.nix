@@ -8,29 +8,29 @@ in {
   ];
 
   programs.zsh = {
-    # enable = true;
+    enable = true;
     enableCompletion = true;
 
     history.size = 10000000;
     history.path = "${config.xdg.dataHome}/zsh/history";
 
-    shellAliases = cli.myAliases;
-    
-    syntaxHighlighting = {
-      enable = true;
-    };
-
-    initExtra = ''
-      [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
-      eval "$(zoxide init --cmd cd zsh)"
-    '';
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-    ];
+    # shellAliases = cli.myAliases;
+    # 
+    # syntaxHighlighting = {
+    #   enable = true;
+    # };
+    #
+    # initExtra = ''
+    #   [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
+    #   eval "$(zoxide init --cmd cd zsh)"
+    # '';
+    # plugins = [
+    #   {
+    #     name = "powerlevel10k";
+    #     src = pkgs.zsh-powerlevel10k;
+    #     file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    #   }
+    # ];
 
     # plug = {
     #   enable = true;
