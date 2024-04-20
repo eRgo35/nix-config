@@ -4,5 +4,7 @@
     ./git.nix
     ./zsh
   ];
-  # home.packages = with pkgs; [];
+  home.packages = with pkgs; [
+    killall
+  ];
 }

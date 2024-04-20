@@ -82,7 +82,6 @@
     kitty-themes
 
     # > tools <
-    rofi 
     git
     wget
     eza

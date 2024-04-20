@@ -6,10 +6,10 @@
 }: {
   imports = [
     ./picom.nix
+    ./rofi.nix
   ];
 
   home.packages = with pkgs; [
-    rofi
     dmenu
     st
     dunst
