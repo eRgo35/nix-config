@@ -22,6 +22,7 @@
     ./features/desktop/dwm
     ./features/kitty.nix
     ./features/neovim.nix
+    ./features/tmux.nix
   ];
 
   nixpkgs = {
