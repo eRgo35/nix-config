@@ -34,7 +34,12 @@
       dwm = {
         enable = true;
         package = pkgs.dwm.overrideAttrs {
-          src = /home/mike/Projects/dwm;
+          src = pkgs.fetchFromGitHub {
+            owner = "eRgo35";
+            repo = "dwm";
+            rev = "a1725eb3c64d27864972a976c8ee18d63a8d9dad";
+            sha256 = "sha256-sY6qFqfkfGtLmi+7mownx3bolM2mVNdhS9VUO6KimKk="; 
+          };
         };
       };
     };

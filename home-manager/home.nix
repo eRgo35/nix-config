@@ -23,6 +23,7 @@
     ./features/kitty.nix
     ./features/neovim.nix
     ./features/tmux.nix
+    ./features/neovide.nix
   ];
 
   nixpkgs = {
@@ -115,7 +116,6 @@
     libreoffice-fresh
     # vscodium
     vscode
-    neovide
     lunarvim
     evolution
     rstudio
@@ -137,7 +137,14 @@
     boost
   ]);
 
-  services.gnome-keyring.enable = true;
+  services.gnome-keyring = {
+    enable = true;
+    components = [
+      "ssh"
+      "secrets"
+      "pkcs11"
+    ];
+  };
     
   home.sessionVariables = {
      EDITOR = "nvim";

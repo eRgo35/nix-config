@@ -7,6 +7,8 @@
   imports = [
     ./picom.nix
     ./rofi.nix
+    ./flameshot.nix
+    ./betterlockscreen.nix
   ];
 
   home.packages = with pkgs; [
@@ -14,13 +16,14 @@
     st
     dunst
     xss-lock
-    flameshot
     xdg-desktop-portal-gtk
     xorg.xrdb
     xorg.xrandr
     xorg.xset
     xorg.xsetroot
     xorg.setxkbmap
+    xorg.xbacklight
+    brightnessctl
     xclip
     gnome.gnome-keyring
     feh
@@ -28,6 +31,15 @@
     kde-gruvbox
     gruvbox-dark-icons-gtk
     alsaUtils
+    nemo
+    pulseaudioFull
+    arandr
+    neomutt
+    ncmpcpp
+    ncspot
+    ncpamixer
+    lf
+    qt5ct
   ];
 
   home.file = {
