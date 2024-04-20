@@ -24,6 +24,9 @@
     windowManager = {
       dwm = {
         enable = true;
+        package = pkgs.dwm.overrideAttrs {
+          src = /home/mike/Projects/dwm;
+        };
       };
     };
 
@@ -32,5 +35,14 @@
         enable = false;
       };
     };
+  };
+
+  environment.systemPackages = (with pkgs; [
+    autorandr
+    xorg.xrandr
+  ]); 
+
+  services.autorandr = {
+    enable = true;
   };
 }
