@@ -73,11 +73,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = (with pkgs; [
-    # > zsh stuff <
-    zsh
-    zsh-autosuggestions
-    zsh-powerlevel10k
-
     # > graphics <
     tuxpaint
     krita    

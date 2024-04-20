@@ -1,6 +1,12 @@
 {config, pkgs, ...}: let 
   cli = import ../aliases.nix; 
 in {
+  home.packages = with pkgs; [
+    # zsh-autosuggestions
+    # zsh-powerlevel10k
+    # zsh-prezto
+  ];
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -9,10 +15,14 @@ in {
     history.path = "${config.xdg.dataHome}/zsh/history";
 
     shellAliases = cli.myAliases;
+    
+    syntaxHighlighting = {
+      enable = true;
+    };
 
     initExtra = ''
       [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
-      eval "$(zoxide init zsh)"
+      eval "$(zoxide init --cmd cd zsh)"
     '';
     plugins = [
       {
@@ -22,18 +32,24 @@ in {
       }
     ];
 
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-      #  { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
-      ];
-    };
+    # plug = {
+    #   enable = true;
+    #   plugins = [
+    #     { name = "zsh-users/zsh-autosuggestions"; }
+    #   ];
+    # };
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = [ "git" "vi-mode" ];
     };
-
+    
+    prezto = {
+      enable = true;
+      tmux = {
+        autoStartLocal = true;
+        autoStartRemote = true;
+      };
+    };
   };
 }
