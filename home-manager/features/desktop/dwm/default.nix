@@ -34,5 +34,8 @@
     ".xinitrc" = {
       source = ./.xinitrc;
     };
+    ".zprofile" = {
+      source = ./.zprofile; 
+    };
   };
 }

@@ -2,9 +2,6 @@
   cli = import ../aliases.nix; 
 in {
   home.packages = with pkgs; [
-    zsh-autosuggestions
-    zsh-powerlevel10k
-    zsh-prezto
   ];
 
   programs.zsh = {
@@ -14,42 +11,32 @@ in {
     history.size = 10000000;
     history.path = "${config.xdg.dataHome}/zsh/history";
 
-    # shellAliases = cli.myAliases;
-    # 
-    # syntaxHighlighting = {
-    #   enable = true;
-    # };
-    #
-    # initExtra = ''
-    #   [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
-    #   eval "$(zoxide init --cmd cd zsh)"
-    # '';
-    # plugins = [
-    #   {
-    #     name = "powerlevel10k";
-    #     src = pkgs.zsh-powerlevel10k;
-    #     file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    #   }
-    # ];
+    shellAliases = cli.myAliases;
+    
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+    ];
+    
+    enableAutosuggestions = true;
 
-    # plug = {
-    #   enable = true;
-    #   plugins = [
-    #     { name = "zsh-users/zsh-autosuggestions"; }
-    #   ];
-    # };
+    syntaxHighlighting = {
+      enable = true;
+    };
+    
+    historySubstringSearch = {
+      enable = true;
+    };
 
-    # oh-my-zsh = {
-    #   enable = true;
-    #   plugins = [ "git" "vi-mode" ];
-    # };
-    # 
-    # prezto = {
-    #   enable = true;
-    #   tmux = {
-    #     autoStartLocal = true;
-    #     autoStartRemote = true;
-    #   };
-    # };
+    initExtra = ''
+      [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
+      eval "$(zoxide init --cmd cd zsh)"
+      if [ -x "$(command -v tmux)" ] && [ -n "$DISPLAY" ] && [ -z "$TMUX" ]; then
+        exec tmux new-session -A -s $USER >/dev/null 2>&1
+      fi
+    '';
   };
 }
