@@ -40,6 +40,7 @@
     ncpamixer
     lf
     qt5ct
+    pamixer
   ];
 
   home.file = {
