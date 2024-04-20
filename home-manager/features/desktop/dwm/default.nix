@@ -11,7 +11,12 @@
     ./betterlockscreen.nix
     ./easyeffects.nix
   ];
-
+  
+  qt = {
+    enable = true;
+    platformTheme = "gtk3";
+  };
+  
   home.packages = with pkgs; [
     dmenu
     st
