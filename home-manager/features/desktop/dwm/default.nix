@@ -37,5 +37,8 @@
     ".zprofile" = {
       source = ./.zprofile; 
     };
+    ".config/picom/black_to_transparent.frag" = {
+      source = ./black_to_transparent.frag;
+    };
   };
 }
