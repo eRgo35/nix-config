@@ -24,6 +24,7 @@
     ./features/neovim.nix
     ./features/tmux.nix
     ./features/neovide.nix
+    ./features/emacs.nix
   ];
 
   nixpkgs = {

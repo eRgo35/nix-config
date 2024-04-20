@@ -11,6 +11,7 @@
     enable = true;
     layout = "pl";
     xkbVariant = "";
+    dpi = 100;
 
     displayManager = {
       lightdm = {

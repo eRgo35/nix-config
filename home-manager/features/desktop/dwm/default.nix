@@ -9,6 +9,7 @@
     ./rofi.nix
     ./flameshot.nix
     ./betterlockscreen.nix
+    ./easyeffects.nix
   ];
 
   home.packages = with pkgs; [

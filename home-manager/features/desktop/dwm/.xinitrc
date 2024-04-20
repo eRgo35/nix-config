@@ -130,7 +130,7 @@ flameshot &
 # status bar
 bash bar.sh & disown
 
-# dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
 # . /etc/X11/Xsession
 
