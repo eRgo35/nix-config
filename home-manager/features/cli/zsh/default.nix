@@ -2,9 +2,9 @@
   cli = import ../aliases.nix; 
 in {
   home.packages = with pkgs; [
-    # zsh-autosuggestions
-    # zsh-powerlevel10k
-    # zsh-prezto
+    zsh-autosuggestions
+    zsh-powerlevel10k
+    zsh-prezto
   ];
 
   programs.zsh = {
@@ -39,17 +39,17 @@ in {
     #   ];
     # };
 
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" "vi-mode" ];
-    };
-    
-    prezto = {
-      enable = true;
-      tmux = {
-        autoStartLocal = true;
-        autoStartRemote = true;
-      };
-    };
+    # oh-my-zsh = {
+    #   enable = true;
+    #   plugins = [ "git" "vi-mode" ];
+    # };
+    # 
+    # prezto = {
+    #   enable = true;
+    #   tmux = {
+    #     autoStartLocal = true;
+    #     autoStartRemote = true;
+    #   };
+    # };
   };
 }
