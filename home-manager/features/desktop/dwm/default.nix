@@ -31,7 +31,7 @@
     kde-gruvbox
     gruvbox-dark-icons-gtk
     alsaUtils
-    nemo
+    cinnamon.nemo
     pulseaudioFull
     arandr
     neomutt
