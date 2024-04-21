@@ -22,6 +22,8 @@
     # everything match nicely? Try nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
 
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
     hyprland = {
       url = "github:hyprwm/hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
