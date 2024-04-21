@@ -12,7 +12,6 @@
     bc
     bottom
     ncdu
-    tly
     ltex-ls 
     nil
     alejandra 
