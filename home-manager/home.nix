@@ -14,7 +14,7 @@
     # outputs.homeManagerModules.example
 
     # Or modules exported from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModules.default
+    inputs.nix-colors.homeManagerModules.default
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -26,6 +26,8 @@
     ./features/neovide.nix
     ./features/emacs.nix
   ];
+  
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 
   nixpkgs = {
     # You can add overlays here
