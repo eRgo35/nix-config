@@ -138,7 +138,9 @@
     boost
     gcc-unwrapped
     gcc.cc.lib
-
+    
+    docker
+    docker-compose
   ]);
 
   services.gnome-keyring = {
