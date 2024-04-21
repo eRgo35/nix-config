@@ -51,4 +51,6 @@
       # programs here, NOT in environment.systemPackages
     ];
   };
+
+  programs.dconf.enable = true;
 }

@@ -10,12 +10,8 @@
     ./flameshot.nix
     ./betterlockscreen.nix
     ./easyeffects.nix
+    ./theming.nix
   ];
-  
-  qt = {
-    enable = true;
-    platformTheme = "gtk3";
-  };
   
   home.packages = with pkgs; [
     dmenu
@@ -40,9 +36,6 @@
     xclip
     gnome.gnome-keyring
     feh
-    gruvbox-dark-gtk
-    kde-gruvbox
-    gruvbox-dark-icons-gtk
     alsaUtils
     cinnamon.nemo
     pulseaudioFull
@@ -52,7 +45,6 @@
     ncspot
     ncpamixer
     lf
-    qt5ct
     pamixer
     w3m
     bat 
@@ -78,6 +70,7 @@
     variety
     virt-manager
     xfce.thunar
+    dconf
   ];
 
   home.file = {
