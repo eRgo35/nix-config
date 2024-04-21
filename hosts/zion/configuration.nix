@@ -22,6 +22,7 @@
     # ./users.nix
     ../common
     ./gui.nix
+    ../common/docker.nix
     
     # nvidia drivers
     ./nvidia.nix
