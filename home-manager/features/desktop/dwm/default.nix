@@ -29,6 +29,13 @@
     xorg.xsetroot
     xorg.setxkbmap
     xorg.xbacklight
+    xorg.libX11
+    xorg.libX11.dev
+    xorg.libxcb
+    xorg.libXft
+    xorg.libXinerama
+    xorg.xinit 
+    xorg.xinput
     brightnessctl
     xclip
     gnome.gnome-keyring
@@ -47,6 +54,30 @@
     lf
     qt5ct
     pamixer
+    w3m
+    bat 
+    efibootmgr
+    eww
+    fontconfig
+    freetype
+    fuse-common
+    gimp
+    gnugrep
+    gnumake
+    gparted
+    nfs-utils
+    ninja
+    nodejs
+    openssl
+    nerdfonts
+    polkit_gnome
+    qemu
+    ripgrep
+    stdenv
+    tldr
+    variety
+    virt-manager
+    xfce.thunar
   ];
 
   home.file = {
