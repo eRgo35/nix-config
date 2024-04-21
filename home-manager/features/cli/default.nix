@@ -7,5 +7,17 @@
   ];
   home.packages = with pkgs; [
     killall
+    comma
+    distrobox
+    bc
+    bottom
+    ncdu
+    tly
+    ltex-ls 
+    nil
+    alejandra 
+    timer
+    jq
+    diffsitter
   ];
 }

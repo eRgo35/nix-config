@@ -136,6 +136,9 @@
     cmake
     gtest
     boost
+    gcc-unwrapped
+    gcc.cc.lib
+
   ]);
 
   services.gnome-keyring = {
