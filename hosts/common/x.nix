@@ -24,5 +24,6 @@
     xorg.libXinerama
     xorg.xbacklight
     pulseaudioFull
+    brightnessctl
   ];
 }
