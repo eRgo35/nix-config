@@ -8,13 +8,13 @@
 }:
 stdenv.mkDerivation {
   pname = "dwm-customized";
-  version = "6.4.1";
+  version = "6.4.2";
 
   src = pkgs.fetchFromGitHub {
     owner = "eRgo35";
     repo  = "dwm";
-    rev   = "main";
-    sha256 = "sha256-KA/g84/QgbihwRT8VuFVr8EXe0L15kFvNW82PRBASa0=";
+    rev   = "d4fed3cac603ea386d57b8c96f6bc49b3c2eec64";
+    sha256 = "sha256-pQMoxKbvWJLznpzcl91yPuB4ugxXW1PnslDM/877ZqA=";
   };
 
   # unpackPhase = ''tar -xf $src'';
