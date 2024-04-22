@@ -8,7 +8,7 @@
 }:
 stdenv.mkDerivation {
   pname = "dwm-customized";
-  version = "6.4";
+  version = "6.4.1";
 
   src = pkgs.fetchFromGitHub {
     owner = "eRgo35";
