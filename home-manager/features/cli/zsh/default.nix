@@ -1,5 +1,9 @@
-{config, pkgs, ...}: let 
-  cli = import ../aliases.nix; 
+{
+  config,
+  pkgs,
+  ...
+}: let
+  cli = import ../aliases.nix;
 in {
   home.packages = with pkgs; [
   ];
@@ -12,7 +16,7 @@ in {
     history.path = "${config.xdg.dataHome}/zsh/history";
 
     shellAliases = cli.myAliases;
-    
+
     plugins = [
       {
         name = "powerlevel10k";
@@ -20,13 +24,13 @@ in {
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
     ];
-    
+
     enableAutosuggestions = true;
 
     syntaxHighlighting = {
       enable = true;
     };
-    
+
     historySubstringSearch = {
       enable = true;
     };

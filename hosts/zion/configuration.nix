@@ -5,8 +5,8 @@
   inputs,
   outputs,
   lib,
-  config, 
-  pkgs, 
+  config,
+  pkgs,
   ...
 }: {
   # You can import other NixOS modules here
@@ -22,7 +22,7 @@
     # ./users.nix
     ../common
     ./gui.nix
-    
+
     # nvidia drivers
     ./nvidia.nix
 

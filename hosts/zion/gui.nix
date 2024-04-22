@@ -30,7 +30,7 @@
         --output $RIGHT --mode 2560x1440 --rate 74.92 --pos 4480x0
       '';
     };
-    
+
     windowManager = {
       dwm = {
         enable = true;
@@ -39,7 +39,7 @@
             owner = "eRgo35";
             repo = "dwm";
             rev = "a1725eb3c64d27864972a976c8ee18d63a8d9dad";
-            sha256 = "sha256-sY6qFqfkfGtLmi+7mownx3bolM2mVNdhS9VUO6KimKk="; 
+            sha256 = "sha256-sY6qFqfkfGtLmi+7mownx3bolM2mVNdhS9VUO6KimKk=";
           };
         };
       };
@@ -50,7 +50,7 @@
         enable = false;
       };
     };
-    
+
     xrandrHeads = [
       {
         output = "HDMI-0";
@@ -64,12 +64,6 @@
       }
     ];
   };
-
-  environment.systemPackages = (with pkgs; [
-    autorandr
-    xorg.xrandr
-  ]); 
-
 
   services.autorandr = {
     enable = true;

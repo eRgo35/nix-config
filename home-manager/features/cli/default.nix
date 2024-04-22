@@ -12,9 +12,9 @@
     bc
     bottom
     ncdu
-    ltex-ls 
+    ltex-ls
     nil
-    alejandra 
+    alejandra
     timer
     jq
     diffsitter

@@ -12,8 +12,8 @@
     ./services.nix
     ./users.nix
     ./docker.nix
+    ./x.nix
   ];
-
 
   nixpkgs = {
     # You can add overlays here
@@ -39,7 +39,7 @@
       allowUnfree = true;
     };
   };
-  
+
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
   nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
@@ -75,7 +75,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enables wireless support via wpa_supplicant
-  # networking.wireless.enable = true;  
+  # networking.wireless.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

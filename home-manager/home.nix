@@ -1,10 +1,10 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ 
+{
   inputs,
   outputs,
   lib,
-  config, 
+  config,
   pkgs,
   ...
 }: {
@@ -18,7 +18,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    ./features/cli 
+    ./features/cli
     ./features/desktop/dwm
     ./features/kitty.nix
     ./features/neovim.nix
@@ -26,7 +26,7 @@
     ./features/neovide.nix
     ./features/emacs.nix
   ];
-  
+
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 
   nixpkgs = {
@@ -76,10 +76,10 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = (with pkgs; [
+  home.packages = with pkgs; [
     # > graphics <
     tuxpaint
-    krita    
+    krita
 
     # > terminal <
     kitty
@@ -122,11 +122,11 @@
     lunarvim
     evolution
     rstudio
-  
+
     # > gaming <
     prismlauncher
     classicube
-    steam     
+    steam
 
     # > development <
     clang
@@ -140,10 +140,10 @@
     boost
     gcc-unwrapped
     gcc.cc.lib
-    
+
     docker
     docker-compose
-  ]);
+  ];
 
   services.gnome-keyring = {
     enable = true;
@@ -153,9 +153,9 @@
       "pkcs11"
     ];
   };
-    
+
   home.sessionVariables = {
-     EDITOR = "nvim";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.

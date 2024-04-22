@@ -1,5 +1,5 @@
 {
-  lib, 
+  lib,
   config,
   pkgs,
   ...
@@ -12,7 +12,7 @@
     ./easyeffects.nix
     ./theming.nix
   ];
-  
+
   home.packages = with pkgs; [
     dmenu
     st
@@ -30,7 +30,7 @@
     xorg.libxcb
     xorg.libXft
     xorg.libXinerama
-    xorg.xinit 
+    xorg.xinit
     xorg.xinput
     brightnessctl
     xclip
@@ -47,7 +47,7 @@
     lf
     pamixer
     w3m
-    bat 
+    bat
     efibootmgr
     eww
     fontconfig
@@ -78,7 +78,7 @@
       source = ./.xinitrc;
     };
     ".zprofile" = {
-      source = ./.zprofile; 
+      source = ./.zprofile;
     };
     ".config/picom/black_to_transparent.frag" = {
       source = ./black_to_transparent.frag;

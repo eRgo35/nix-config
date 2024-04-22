@@ -7,7 +7,7 @@
     };
 
     theme = "Gruvbox Dark";
-    
+
     settings = {
       confirm_os_window_close = 0;
       detect_urls = true;

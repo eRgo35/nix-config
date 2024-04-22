@@ -7,7 +7,7 @@
     terminal = "screen-256color";
     baseIndex = 1;
     plugins = with pkgs.tmuxPlugins; [
-      sensible 
+      sensible
       vim-tmux-navigator
       gruvbox
       yank

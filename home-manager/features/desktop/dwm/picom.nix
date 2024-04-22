@@ -1,5 +1,5 @@
 {
-  lib, 
+  lib,
   config,
   pkgs,
   ...
@@ -7,7 +7,7 @@
   services.picom = {
     enable = true;
     package = pkgs.unstable.picom;
-    backend = "glx"; 
+    backend = "glx";
 
     shadow = true;
     shadowOpacity = 0.2;
@@ -56,16 +56,16 @@
 
       # xprop | grep -i 'class'
       opacity-rule = [
-          "90:class_g = 'neovide'"
-          "90:class_g = 'code-oss'"
-          "90:class_g = 'discord'"
-          "90:class_g = 'Emacs'"
-          "90:class_g = 'TelegramDesktop'"
-          "90:class_g = 'Spotify'"
-          "90:class_g = 'easyeffects'"
-          "90:class_g = 'kitty'"
-          "90:class_g = 'Nemo'"
-          "97:class_g = 'firefox'"
+        "90:class_g = 'neovide'"
+        "90:class_g = 'code-oss'"
+        "90:class_g = 'discord'"
+        "90:class_g = 'Emacs'"
+        "90:class_g = 'TelegramDesktop'"
+        "90:class_g = 'Spotify'"
+        "90:class_g = 'easyeffects'"
+        "90:class_g = 'kitty'"
+        "90:class_g = 'Nemo'"
+        "97:class_g = 'firefox'"
       ];
 
       # Exclude conditions for background blur.
@@ -95,5 +95,5 @@
         #"nordify.glsl:class_g = 'miru'"
       ];
     };
- };
+  };
 }

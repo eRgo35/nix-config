@@ -1,6 +1,6 @@
 {
   programs.git = {
-    enable = true; 
+    enable = true;
     userName = "Michał Czyż";
     userEmail = "mike@c2yz.com";
     signing = {

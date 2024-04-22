@@ -19,7 +19,7 @@
     randomizedDelaySec = "45min";
   };
 
-  environment.systemPackages = (with pkgs; [
+  environment.systemPackages = with pkgs; [
     # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # wget
     ntfs3g
@@ -27,9 +27,9 @@
     unstable.nh
     nix-output-monitor
     nvd
-  ]);
+  ];
 
-  fonts.packages = with pkgs; [ 
+  fonts.packages = with pkgs; [
     nerdfonts
     noto-fonts
     noto-fonts-cjk

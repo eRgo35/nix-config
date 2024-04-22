@@ -8,7 +8,7 @@
   # xdhp = pkgs.inputs.hyprland.xdg-desktop-portal-hyprland.override {inherit hyprland;};
 in {
   imports = [
-    ../common 
+    ../common
     ../common/wayland-wm
   ];
 
@@ -26,18 +26,18 @@ in {
     xdg-desktop-portal-hyprland
   ];
 
-#   wayland.windowManger.hyprland = {
-#     enable = true;
-#     # package = hyprland;
-#     systemd = {
-#       enable = true;
-#       # Same as default but stop graphical-session too
-#       extraCommands = lib.mkBefore [
-#         "systemctl --user stop graphical-session.target"
-#         "systemctl --user start hyprland-session.target"
-#       ];
-#     };
-#
-# #TODO: Add hyprland config
-#   };
+  #   wayland.windowManger.hyprland = {
+  #     enable = true;
+  #     # package = hyprland;
+  #     systemd = {
+  #       enable = true;
+  #       # Same as default but stop graphical-session too
+  #       extraCommands = lib.mkBefore [
+  #         "systemctl --user stop graphical-session.target"
+  #         "systemctl --user start hyprland-session.target"
+  #       ];
+  #     };
+  #
+  # #TODO: Add hyprland config
+  #   };
 }

@@ -8,7 +8,7 @@
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
-    
+
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
@@ -28,25 +28,25 @@
       url = "github:hyprwm/hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     hyprwm-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
   };
 
-  outputs = { 
-    self, 
-    nixpkgs, 
-    nixpkgs-unstable, 
-    home-manager, 
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
     ...
-  } @ inputs: let 
+  } @ inputs: let
     inherit (self) outputs;
     # Supported systems for your flake packages, shell, etc.
     systems = [
@@ -75,7 +75,7 @@
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
     homeManagerModules = import ./modules/home-manager;
-    
+
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#hostname'
     nixosConfigurations = {
@@ -83,14 +83,14 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Main NixOS configuration file <
-            ./hosts/zion/configuration.nix
+          ./hosts/zion/configuration.nix
         ];
       };
       thor = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Main NixOS configuration file <
-            ./hosts/thor/configuration.nix
+          ./hosts/thor/configuration.nix
         ];
       };
     };

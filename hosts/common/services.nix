@@ -6,9 +6,8 @@
   pkgs,
   ...
 }: {
-
   # I use zsh btw
-  environment.shells = with pkgs; [ bash zsh ];
+  environment.shells = with pkgs; [bash zsh];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
@@ -40,11 +39,11 @@
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-   programs.mtr.enable = true;
-   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-   };
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
