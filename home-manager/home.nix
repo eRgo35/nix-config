@@ -143,6 +143,7 @@
 
     docker
     docker-compose
+    gnome.seahorse
   ];
 
   services.gnome-keyring = {
