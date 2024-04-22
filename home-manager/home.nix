@@ -155,6 +155,8 @@
     ];
   };
 
+  systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };
