@@ -144,6 +144,7 @@
     docker
     docker-compose
     gnome.seahorse
+    lmstudio
   ];
 
   services.gnome-keyring = {

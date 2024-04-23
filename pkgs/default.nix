@@ -4,4 +4,5 @@
   pkgs ? import <nixpkgs> {}}: rec {
   # example = pkgs.callPackage ./example { };
   dwm-customized = pkgs.callPackage ./dwm-customized {};
+  lmstudio = pkgs.callPackage ./lmstudio {};
 }
