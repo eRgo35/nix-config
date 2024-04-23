@@ -46,4 +46,9 @@
     name = "Bibata-Modern-Classic";
     size = 18;
   };
+
+  xsession.pointerCursor = {
+    name = "Bibata-Modern-Classic";
+    size = 18;
+  };
 }

@@ -41,8 +41,8 @@ export XMODIFIERS=@im=fcitx
 export GLFW_IM_MODULE=ibus
 
 # some merges
-xsetroot -cursor_name left_ptr &
 xrdb merge .Xresources &
+xsetroot -cursor_name left_ptr &
 
 # compositor
 picom -b --vsync &
@@ -86,7 +86,6 @@ xset s 900 &
 # nitrogen --restore &
 # wal --backend colorz -i $HOME/.dots/nitrogen/.config/nitrogen/pexels-engin-akyurt-1435752.jpg &
 . ~/.fehbg &
-xrdb -merge ~/.config/.Xresources 
 
 ## Set screen locker
 xss-lock -v -- betterlockscreen -l --time-format '%I:%M %p' &
