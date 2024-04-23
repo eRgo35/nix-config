@@ -163,6 +163,7 @@ net() {
   fi
 }
 
+
 while true; do
 
   # [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] && updates=$(pkg_updates)
@@ -170,10 +171,11 @@ while true; do
 
   # sleep 1 && xsetroot -name "$updates $(battery) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
   # sleep 1 && xsetroot -name "$(battery) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-  if hash dockd 2>/dev/null; then
-    sleep 1 && xsetroot -name "^c$foreground^^b$background1^  $(brightness)  ^b$background0^  $(battery)  $(net)^c$foreground^^b$background0^  $(today)  ^b$background1^  $(clock)  ^b$background2^  $(pulse)  "
-  else
-    sleep 1 && xsetroot -name "^c$foreground^$(net)^c$foreground^^b$background0^  $(today)  ^b$background1^  $(clock)  ^b$background2^  $(pulse)  "
-  fi
-
+  # if hash dockd 2>/dev/null; then
+  #   sleep 1 && xsetroot -name "^c$foreground^^b$background1^  $(brightness)  ^b$background0^  $(battery)  $(net)^c$foreground^^b$background0^  $(today)  ^b$background1^  $(clock)  ^b$background2^  $(pulse)  "
+  # else
+  sleep 1 && xsetroot -name "^c$foreground^$(net)^c$foreground^^b$background0^  $(today)  ^b$background1^  $(clock)  ^b$background2^  $(pulse)  "
+  xsetroot -cursor_name left_ptr
+  # fi
+  
 done

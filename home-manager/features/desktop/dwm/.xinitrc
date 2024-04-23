@@ -40,10 +40,6 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export GLFW_IM_MODULE=ibus
 
-# some merges
-xrdb merge .Xresources &
-xsetroot -cursor_name left_ptr &
-
 # compositor
 picom -b --vsync &
 
@@ -135,5 +131,10 @@ dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XA
 
 # redshift &
 
+# some merges
+# xrdb merge .Xresources &
+# xsetroot -cursor_name left_ptr &
+
 # start dwm
 exec dwm
+
