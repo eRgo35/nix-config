@@ -83,11 +83,11 @@
     ".config/picom/black_to_transparent.frag" = {
       source = ./black_to_transparent.frag;
     };
-    ".Xresources" = {
-      text = ''
-        Xcursor.theme: "Bibata-Modern-Classic"
-        Xcursor.size: 18
-      ''; 
-    };
+    # ".Xresources" = {
+    #   text = ''
+    #     Xcursor.theme: "Bibata-Modern-Classic"
+    #     Xcursor.size: 18
+    #   ''; 
+    # };
   };
 }
