@@ -145,6 +145,7 @@
     docker-compose
     gnome.seahorse
     lmstudio
+    unstable.arduino-ide
   ];
 
   services.gnome-keyring = {

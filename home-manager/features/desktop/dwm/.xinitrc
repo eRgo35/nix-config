@@ -41,7 +41,7 @@ export XMODIFIERS=@im=fcitx
 export GLFW_IM_MODULE=ibus
 
 # some merges
-xsetroot -cursor_name left_ptr &
+# xsetroot -cursor_name left_ptr &
 # xrdb merge .Xresources &
 
 # compositor
