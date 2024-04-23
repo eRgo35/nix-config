@@ -8,7 +8,7 @@
   gtk = {
     enable = true;
     cursorTheme = {
-      name = "Bibata-Modern-Ice";
+      name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
     };
     theme = {
@@ -16,7 +16,7 @@
       package = pkgs.gruvbox-dark-gtk;
     };
     iconTheme = {
-      name = "gruvbox-dark-icons";
+      name = "oomox-gruvbox-dark";
       package = pkgs.gruvbox-dark-icons-gtk;
     };
   };
@@ -41,8 +41,9 @@
 
   home.pointerCursor = {
     gtk.enable = true;
+    x11.enable = true;
     package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 24;
+    name = "Bibata-Modern-Classic";
+    size = 18;
   };
 }

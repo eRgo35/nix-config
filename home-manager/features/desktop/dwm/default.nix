@@ -85,8 +85,8 @@
     };
     ".Xresources" = {
       text = ''
-        Xcursor.theme: "Bibata-Modern-Ice"
-        Xcursor.size: 24
+        Xcursor.theme: "Bibata-Modern-Classic"
+        Xcursor.size: 18
       ''; 
     };
   };
