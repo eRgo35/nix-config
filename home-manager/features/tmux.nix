@@ -13,9 +13,6 @@
       yank
     ];
     extraConfig = ''
-      # reattach userspaces
-      set -g default-command "reattach-to-user-namespace -l zsh"
-
       # history limit
       set -g history-limit 5000
 

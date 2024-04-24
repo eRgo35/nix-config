@@ -39,7 +39,8 @@ in {
       [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
       eval "$(zoxide init --cmd cd zsh)"
       if [ -x "$(command -v tmux)" ] && [ -n "$DISPLAY" ] && [ -z "$TMUX" ]; then
-        exec tmux new-session -A -s $USER >/dev/null 2>&1
+        # exec tmux new-session -A -s $USER >/dev/null 2>&1
+        exec tmux new-session -t $USER >/dev/null 2>&1 | tmux new-session -A -s $USER >/dev/null 2>&1
       fi
     '';
   };
