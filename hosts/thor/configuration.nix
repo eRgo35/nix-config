@@ -22,6 +22,7 @@
     # ./users.nix
     ../common
     ./gui.nix
+    ./bluetooth.nix
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
