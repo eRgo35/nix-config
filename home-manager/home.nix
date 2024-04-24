@@ -105,6 +105,7 @@
     gnome.gnome-keyring
     gnome.adwaita-icon-theme
     R
+    openvpn
 
     # > media <
     spotify
