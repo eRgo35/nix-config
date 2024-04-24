@@ -16,18 +16,18 @@
       # history limit
       set -g history-limit 5000
 
-      # increase repeat time 
+      # increase repeat time
       set -g repeat-time 1000
 
       # decrese command delay
-      set -sg escape-time 1 
+      set -sg escape-time 1
 
       # faster key repetition
-      set -s escape-time 0 
+      set -s escape-time 0
 
-      setw -g aggressive-resize on 
+      setw -g aggressive-resize on
 
-      # reload tmux while using tmux 
+      # reload tmux while using tmux
       bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
 
       # Shift Alt vim keys to switch windows

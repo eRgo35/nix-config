@@ -87,7 +87,7 @@
     #   text = ''
     #     Xcursor.theme: "Bibata-Modern-Classic"
     #     Xcursor.size: 18
-    #   ''; 
+    #   '';
     # };
   };
 }
