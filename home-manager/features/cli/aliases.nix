@@ -14,7 +14,7 @@
     lall = "eza -lahF --icons --git";
     lalg = "eza -laGhF --icons --git";
     latree = "eza -laGghHT --git --icons";
-    la = "eza -la --git --icons";
+    la = "eza --git --icons -la";
     lsd = "eza -laD";
 
     cls = "clear";
