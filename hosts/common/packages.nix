@@ -15,7 +15,7 @@
       "nixpkgs"
       "-L"
     ];
-    dates = "09:00";
+    dates = "12:00";
     randomizedDelaySec = "45min";
   };
 
