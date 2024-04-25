@@ -147,6 +147,7 @@
     gnome.seahorse
     lmstudio
     unstable.arduino-ide
+    iwgtk
   ];
 
   services.gnome-keyring = {
