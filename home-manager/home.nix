@@ -102,7 +102,6 @@
     woeusb
     steam-run
     unzip
-    gnome.gnome-keyring
     gnome.adwaita-icon-theme
     R
     openvpn
@@ -141,6 +140,7 @@
     boost
     gcc-unwrapped
     gcc.cc.lib
+    inputs.nixvim.packages."x86_64-linux".default
 
     docker
     docker-compose
