@@ -24,7 +24,9 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-    nixvim.url = "github:eRgo35/nixvim";
+    nvim-flake = {
+      url = "github:Gerg-L/nvim-flake";
+    };
 
     hyprland = {
       url = "github:hyprwm/hyprland";

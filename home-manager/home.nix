@@ -134,6 +134,8 @@
     lmstudio
     unstable.arduino-ide
     iwgtk
+
+    inputs.nvim-flake.packages.${pkgs.system}.neovim
   ];
 
   services.gnome-keyring = {
