@@ -3,8 +3,6 @@
 {
   inputs,
   outputs,
-  lib,
-  config,
   pkgs,
   ...
 }: {
@@ -122,6 +120,7 @@
     lunarvim
     evolution
     rstudio
+    unstable.obsidian
 
     # > gaming <
     prismlauncher
@@ -129,19 +128,6 @@
     steam
 
     # > development <
-    clang
-    clang-tools
-    cargo
-    bash
-    nodejs
-    python3
-    cmake
-    gtest
-    boost
-    gcc-unwrapped
-    gcc.cc.lib
-    inputs.nixvim.packages."x86_64-linux".default
-
     docker
     docker-compose
     gnome.seahorse
@@ -157,11 +143,6 @@
       "secrets"
       "pkcs11"
     ];
-  };
-  
-  programs.nixvim = {
-    enable = true;
-    defaultEditor = true;
   };
 
   systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
