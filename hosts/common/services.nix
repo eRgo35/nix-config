@@ -42,10 +42,10 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   # enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
@@ -59,15 +59,15 @@
     };
   };
 
-  security.pam.services.kwallet = {
-    name = "kwallet";
-    enableKwallet = true;
-  };
+  # security.pam.services.kwallet = {
+  #   name = "kwallet";
+  #   enableKwallet = true;
+  # };
 
   programs.ssh = {
-    startAgent = true;
+    # startAgent = true;
     forwardX11 = true;
-    enableAskPassword = true;
+    # enableAskPassword = true;
   };
 
   # Open ports in the firewall.
