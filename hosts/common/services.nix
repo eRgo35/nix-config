@@ -48,8 +48,8 @@
     settings = {
       max-cache-ttl = 60480000;
       default-cache-ttl = 60480000;
-      default-cache-ttl-ssh = 60480000;
-      max-cache-ttl-ssl = 60480000;
+      # default-cache-ttl-ssh = 60480000;
+      # max-cache-ttl-ssl = 60480000;
     };
   };
 
