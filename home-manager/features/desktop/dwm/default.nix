@@ -34,7 +34,7 @@
     xorg.xinput
     brightnessctl
     xclip
-    gnome.gnome-keyring
+    # gnome.gnome-keyring
     feh
     alsaUtils
     cinnamon.nemo
