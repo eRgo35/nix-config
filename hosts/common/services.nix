@@ -44,7 +44,7 @@
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    enableSSHSupport = true;
+    # enableSSHSupport = true;
   };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
@@ -57,6 +57,12 @@
       # Use keys only. Remove if you want to SSH using password (not recommended)
       PasswordAuthentication = true;
     };
+  };
+
+  programs.ssh = {
+    startAgent = true;
+    forwardX11 = true;
+    enableAskPassword = true;
   };
 
   # Open ports in the firewall.

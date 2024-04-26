@@ -144,6 +144,15 @@
       "pkcs11"
     ];
   };
+  
+  #programs.keychain = {
+  #  enable = true;
+  #  enableZshIntegration = true;
+  #  keys = [
+  #    "id_rsa"
+  #  ];
+  #  enableXsessionIntegration = true;
+  #};
 
   systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
 
