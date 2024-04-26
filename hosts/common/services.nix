@@ -14,7 +14,7 @@
   # Configure console keymap
   console.keyMap = "pl2";
   
-  services.gnome.gnome-keyring.enable = true;
+  # services.gnome.gnome-keyring.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -42,10 +42,10 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    # enableSSHSupport = true;
-  };
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   # enableSSHSupport = true;
+  # };
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
@@ -57,6 +57,11 @@
       # Use keys only. Remove if you want to SSH using password (not recommended)
       PasswordAuthentication = true;
     };
+  };
+
+  security.pam.services.kwallet = {
+    name = "kwallet";
+    enableKwallet = true;
   };
 
   programs.ssh = {

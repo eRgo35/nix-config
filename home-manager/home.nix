@@ -136,14 +136,14 @@
     iwgtk
   ];
 
-  services.gnome-keyring = {
-    enable = true;
-    components = [
-      "ssh"
-      "secrets"
-      "pkcs11"
-    ];
-  };
+  # services.gnome-keyring = {
+  #   enable = true;
+  #   components = [
+  #     "ssh"
+  #     "secrets"
+  #     "pkcs11"
+  #   ];
+  # };
   
   programs.keychain = {
     enable = true;
