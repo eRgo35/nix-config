@@ -24,7 +24,9 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-    nixvim.url = "github:eRgo35/nixvim";
+    nvim-flake = {
+      url = "github:Gerg-L/nvim-flake";
+    };
 
     hyprland = {
       url = "github:hyprwm/hyprland";
@@ -47,7 +49,6 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -70,9 +71,6 @@
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    nixpkgs.overlays = [
-      nixvim.overlays.default
-    ];
     # Your custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export

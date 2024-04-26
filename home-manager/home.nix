@@ -19,7 +19,7 @@
     ./features/cli
     ./features/desktop/dwm
     ./features/kitty.nix
-    # ./features/neovim.nix
+    ./features/neovim.nix
     ./features/tmux.nix
     ./features/neovide.nix
     ./features/emacs.nix
@@ -145,14 +145,14 @@
     ];
   };
   
-  #programs.keychain = {
-  #  enable = true;
-  #  enableZshIntegration = true;
-  #  keys = [
-  #    "id_rsa"
-  #  ];
-  #  enableXsessionIntegration = true;
-  #};
+  programs.keychain = {
+    enable = true;
+    enableZshIntegration = true;
+    keys = [
+      "id_rsa"
+    ];
+    enableXsessionIntegration = true;
+  };
 
   systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
 
