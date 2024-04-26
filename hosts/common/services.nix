@@ -11,6 +11,7 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
+
   # Configure console keymap
   console.keyMap = "pl2";
   
