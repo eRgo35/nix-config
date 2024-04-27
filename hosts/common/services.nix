@@ -15,7 +15,7 @@
   # Configure console keymap
   console.keyMap = "pl2";
   
-  # services.gnome.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
