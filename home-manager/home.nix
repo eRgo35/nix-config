@@ -118,7 +118,7 @@
     # vscodium
     vscode
     lunarvim
-    evolution
+    unstable.evolution
     rstudio
     unstable.obsidian
 
