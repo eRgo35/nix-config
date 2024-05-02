@@ -42,7 +42,6 @@
 
   environment.sessionVariables = {
     FLAKE = "/home/mike/.dots";
-    NIX_BUILD_SHELL = "/run/current-system/sw/bin/zsh";
   };
 
   programs.nix-ld = {

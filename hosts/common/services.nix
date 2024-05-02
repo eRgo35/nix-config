@@ -75,7 +75,7 @@
 
   programs.ssh = {
     # startAgent = true;
-    forwardX11 = true;
+    # forwardX11 = true;
     # enableAskPassword = true;
   };
 
