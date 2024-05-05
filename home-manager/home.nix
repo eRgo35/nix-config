@@ -103,6 +103,7 @@
     gnome.adwaita-icon-theme
     R
     openvpn
+    wol
 
     # > media <
     spotify
