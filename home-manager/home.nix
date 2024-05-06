@@ -104,12 +104,14 @@
     R
     openvpn
     wol
+    direnv
 
     # > media <
     spotify
     vlc
     mpv
     obs-studio
+    okular
 
     # > desktop <
     firefox
