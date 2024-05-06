@@ -124,6 +124,7 @@
     unstable.evolution
     rstudio
     unstable.obsidian
+    foliate
 
     # > gaming <
     prismlauncher
