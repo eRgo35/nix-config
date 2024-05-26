@@ -105,6 +105,7 @@
     openvpn
     wol
     direnv
+    insomnia
 
     # > media <
     spotify
