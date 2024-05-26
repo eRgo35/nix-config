@@ -121,6 +121,7 @@
     libreoffice-fresh
     # vscodium
     vscode
+    google-chrome
     lunarvim
     unstable.evolution
     rstudio
