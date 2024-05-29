@@ -92,6 +92,7 @@
     # texliveFull
     texlive.combined.scheme-full
     pgf-umlcd
+    fastfetch
     pgf-umlsd
     zoxide
     neofetch
