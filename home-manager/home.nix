@@ -122,7 +122,7 @@
     telegram-desktop
     libreoffice-fresh
     # vscodium
-    vscode
+    unstable.vscode
     google-chrome
     lunarvim
     unstable.evolution
