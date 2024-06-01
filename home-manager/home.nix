@@ -1,11 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  pkgs,
-  ...
-}: {
+{ inputs, outputs, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -107,6 +102,8 @@
     openvpn
     wol
     direnv
+    p7zip
+    czkawka
     insomnia
 
     # > media <
@@ -150,13 +147,9 @@
 
   services.gnome-keyring = {
     enable = true;
-    components = [
-      "ssh"
-      "secrets"
-      "pkcs11"
-    ];
+    components = [ "ssh" "secrets" "pkcs11" ];
   };
-  
+
   # programs.keychain = {
   #   enable = true;
   #   enableZshIntegration = true;
@@ -168,9 +161,7 @@
 
   # systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
