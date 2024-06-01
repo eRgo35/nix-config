@@ -23,6 +23,7 @@
     ./features/tmux.nix
     ./features/neovide.nix
     ./features/emacs.nix
+    ./features/helix.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
