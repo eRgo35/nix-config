@@ -14,6 +14,7 @@ autorandr -c
 
 xset -b # disable bell
 
+export SSH_AUTH_SOCK;
 # export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 # ssh-agent -d &
 

@@ -151,9 +151,9 @@
   services.gnome-keyring = {
     enable = true;
     components = [
-      # "ssh"
+      "ssh"
       "secrets"
-      # "pkcs11"
+      "pkcs11"
     ];
   };
   
