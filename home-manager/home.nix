@@ -129,6 +129,7 @@
     rstudio
     unstable.obsidian
     foliate
+    helio-workstation
 
     # > gaming <
     prismlauncher
