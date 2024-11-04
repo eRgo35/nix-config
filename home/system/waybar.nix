@@ -7,252 +7,252 @@
     settings.mainBar = {
   	layer = "top"; # Waybar at top layer
     height = 32; # Waybar height (to be removed for auto height)
-  spacing = 0; # Gaps between modules (4px)
-  position = "top";
-  margin = "10 20 0";
-  # Choose the order of the modules
-  modules-left = [
-    "hyprland/workspaces"
-   "custom/media"
-   ];
-  modules-center = ["hyprland/window"];
-  modules-right = [
-    "mpris"
-    # "idle_inhibitor",
-    "pulseaudio"
-    # "network",
-    "cpu"
-    "memory"
-    # "temperature",
-    "backlight"
-    # "keyboard-state",
-    "battery"
-    "clock"
-    "tray"
-  ];
-  # Modules configuration
-  # "sway/workspaces = {
-  #     "disable-scroll = true,
-  #     "all-outputs = true,
-  #     "warp-on-scroll = false,
-  #     "format = "{name}: {icon}",
-  #     "format-icons = {
-  #         "1 = "",
-  #         "2 = "",
-  #         "3 = "",
-  #         "4 = "",
-  #         "5 = "",
-  #         "urgent = "",
-  #         "focused = "",
-  #         "default = ""
-  #     }
-  # },
-  "hyprland/workspaces" = {
-    active-only = false;
-    format = "{icon}";
-    # format-icons = {
-    #   1 = "一";
-    #   2 = "二";
-    #   3 = "三";
-    #   4 = "四";
-    #   5 = "五";
-    #   6 = "六";
-    #   7 = "七";
-    #   8 = "八";
-    #   9 = "九";
-    #   10 = "十";
-    #   11 = "一";
-    #   12 = "二";
-    #   13 = "三";
-    #   14 = "四";
-    #   15 = "五";
-    #   16 = "六";
-    #   17 = "七";
-    #   18 = "八";
-    #   19 = "九";
-    #   20 = "十";
-    #   21 = "一";
-    #   22 = "二";
-    #   23 = "三";
-    #   24 = "四";
-    #   25 = "五";
-    #   26 = "六";
-    #   27 = "七";
-    #   28 = "八";
-    #   29 = "九";
-    #   30 = "十";
-    # };
-    on-scroll-up = "hyprctl dispatch workspace e+1";
-    on-scroll-down = "hyprctl dispatch workspace e-1";
-    persistent-workspaces = {
-      HDMI-A-1 = [1 2 3 4 5 6 7 8 9 10];
-      DP-1 = [11 12 13 14 15 16 17 18 19 20];
-      DP-2 = [21 22 23 24 25 26 27 28 29 30];
+    spacing = 0; # Gaps between modules (4px)
+    position = "top";
+    margin = "10 20 0";
+    # Choose the order of the modules
+    modules-left = [
+      "hyprland/workspaces"
+      "custom/media"
+    ];
+    modules-center = ["hyprland/window"];
+    modules-right = [
+      "mpris"
+      # "idle_inhibitor",
+      "pulseaudio"
+      # "network",
+      "cpu"
+      "memory"
+      # "temperature",
+      "backlight"
+      # "keyboard-state",
+      "battery"
+      "clock"
+      "tray"
+    ];
+    # Modules configuration
+    # sway/workspaces = {
+    #     "disable-scroll = true,
+    #     "all-outputs = true,
+    #     "warp-on-scroll = false,
+    #     "format = "{name}: {icon}",
+    #     "format-icons = {
+    #         "1 = "",
+    #         "2 = "",
+    #         "3 = "",
+    #         "4 = "",
+    #         "5 = "",
+    #         "urgent = "",
+    #         "focused = "",
+    #         "default = ""
+    #     }
+    # },
+    "hyprland/workspaces" = {
+      active-only = false;
+      format = "{icon}";
+      format-icons = {
+        "1" = "一";
+        "2" = "二";
+        "3" = "三";
+        "4" = "四";
+        "5" = "五";
+        "6" = "六";
+        "7" = "七";
+        "8" = "八";
+        "9" = "九";
+        "10" = "十";
+        "11" = "一";
+        "12" = "二";
+        "13" = "三";
+        "14" = "四";
+        "15" = "五";
+        "16" = "六";
+        "17" = "七";
+        "18" = "八";
+        "19" = "九";
+        "20" = "十";
+        "21" = "一";
+        "22" = "二";
+        "23" = "三";
+        "24" = "四";
+        "25" = "五";
+        "26" = "六";
+        "27" = "七";
+        "28" = "八";
+        "29" = "九";
+        "30" = "十";
+      };
+      on-scroll-up = "hyprctl dispatch workspace e+1";
+      on-scroll-down = "hyprctl dispatch workspace e-1";
+      persistent-workspaces = {
+        HDMI-A-1 = [1 2 3 4 5 6 7 8 9 10];
+        DP-1 = [11 12 13 14 15 16 17 18 19 20];
+        DP-2 = [21 22 23 24 25 26 27 28 29 30];
+      };
     };
-  };
-  keyboard-state = {
-    numlock = false;
-    capslock = true;
-    format = "{name} {icon}";
-    format-icons = {
-      locked = "";
-      unlocked = "";
+    keyboard-state = {
+      numlock = false;
+      capslock = true;
+      format = "{name} {icon}";
+      format-icons = {
+        locked = "";
+        unlocked = "";
+      };
     };
-  };
-  "sway/mode" = {
-    format = "<span style=\"italic\">{}</span>";
-  };
-  "sway/scratchpad" = {
-    format = "{icon} {count}";
-    show-empty = false;
-    format-icons = ["" ""];
-    tooltip = true;
-    tooltip-format = "{app}: {title}";
-  };
-  mpris = {
-    interval = 1;
-    format = "{player_icon} {status_icon}";
-    format-paused = "{player_icon} {status_icon}";
-    tooltip-format = "{player_icon} {dynamic}";
-    tooltip-format-paused = "{player_icon} {dynamic}";
-    player-icons = {
-      default = "󰎄";
-      mpv = "󰝚";
-      vlc = "󰕼";
-      spotify = "";
+    "sway/mode" = {
+      format = "<span style=\"italic\">{}</span>";
     };
-    status-icons = {
-      playing = "";
-      paused = "";
-      stopped = "";
+    "sway/scratchpad" = {
+      format = "{icon} {count}";
+      show-empty = false;
+      format-icons = ["" ""];
+      tooltip = true;
+      tooltip-format = "{app}: {title}";
     };
-    # "ignored-players = ["firefox"]
-  };
-  mpd = {
-    format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
-    format-disconnected = "Disconnected ";
-    format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
-    unknown-tag = "N/A";
-    interval = 2;
-    consume-icons = {
-      on = " ";
+    mpris = {
+      interval = 1;
+      format = "{player_icon} {status_icon}";
+      format-paused = "{player_icon} {status_icon}";
+      tooltip-format = "{player_icon} {dynamic}";
+      tooltip-format-paused = "{player_icon} {dynamic}";
+      player-icons = {
+        default = "󰎄";
+        mpv = "󰝚";
+        vlc = "󰕼";
+        spotify = "";
+      };
+      status-icons = {
+        playing = "";
+        paused = "";
+        stopped = "";
+      };
+      # "ignored-players = ["firefox"]
     };
-    random-icons = {
-      off = "<span color=\"#f53c3c\"></span> ";
-      on = " ";
+    mpd = {
+      format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
+      format-disconnected = "Disconnected ";
+      format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+      unknown-tag = "N/A";
+      interval = 2;
+      consume-icons = {
+        on = " ";
+      };
+      random-icons = {
+        off = "<span color=\"#f53c3c\"></span> ";
+        on = " ";
+      };
+      repeat-icons = {
+        on = " ";
+      };
+      single-icons = {
+        on = "1 ";
+      };
+      state-icons = {
+        paused = "";
+        playing = "";
+      };
+      tooltip-format = "MPD (connected)";
+      tooltip-format-disconnected = "MPD (disconnected)";
     };
-    repeat-icons = {
-      on = " ";
+    idle_inhibitor = {
+      format = "{icon}";
+      format-icons = {
+        activated = "󰅶";
+        deactivated = "󰾪";
+      };
     };
-    single-icons = {
-      on = "1 ";
+    tray = {
+      # "icon-size = 21,
+      spacing = 10;
+      show-passive-items = true;
     };
-    state-icons = {
-      paused = "";
-      playing = "";
+    clock = {
+      format = "{:%b %d %I:%M %p}";
+      tooltip-format = "<big>{:%d %B %Y}</big>\n<tt><small>{calendar}</small></tt>";
+      format-alt = "{:%Y-%m-%d %I:%M %p}";
     };
-    tooltip-format = "MPD (connected)";
-    tooltip-format-disconnected = "MPD (disconnected)";
-  };
-  idle_inhibitor = {
-    format = "{icon}";
-    format-icons = {
-      activated = "󰅶";
-      deactivated = "󰾪";
+    cpu = {
+      format = "{usage}% ";
+      tooltip = false;
     };
-  };
-  tray = {
-    # "icon-size = 21,
-    spacing = 10;
-    show-passive-items = true;
-  };
-  clock = {
-    format = "{:%b %d %I:%M %p}";
-    tooltip-format = "<big>{:%d %B %Y}</big>\n<tt><small>{calendar}</small></tt>";
-    format-alt = "{:%Y-%m-%d %I:%M %p}";
-  };
-  cpu = {
-    format = "{usage}% ";
-    tooltip = false;
-  };
-  memory = {
-    format = "{}% ";
-  };
-  temperature = {
-    # "thermal-zone = 2,
-    # "hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input",
-    critical-threshold = 80;
-    # "format-critical = "{temperatureC}°C {icon}",
-    format = "{temperatureC}°C {icon}";
-    format-icons = ["" "" " "];
-  };
-  backlight = {
-    # "device = "acpi_video1",
-    format = "{percent}% {icon}";
-    format-icons = ["" "" "" "" "" "" "" "" ""];
-  };
-  battery = {
-    bat = "BAT0";
-    states = {
-      # good = 95,
-      warning = 30;
-      critical = 15;
+    memory = {
+      format = "{}% ";
     };
-    format = "{capacity}% {icon}";
-    format-charging = "{capacity}% ";
-    format-plugged = "{capacity}% ";
-    format-alt = "{time} {icon}";
-    # "format-good = "", # An empty format will hide the module
-    # "format-full = "",
-    format-icons = ["" "" "" "" ""];
-  };
-  network = {
-    # "interface = "wlp2*", # (Optional) To force the use of this interface
-    format-wifi = "{essid} ({signalStrength}%) ";
-    format-ethernet = "{ipaddr}/{cidr} 󰈀";
-    tooltip-format = "{ifname} via {gwaddr} ";
-    format-linked = "{ifname} (No IP) ";
-    format-disconnected = "Disconnected ⚠";
-    format-alt = "{ifname}: {ipaddr}/{cidr}";
-    on-click-right = "kitty nmtui";
-  };
-  pulseaudio = {
-    # "scroll-step = 1, # %, can be a float
-    format = "{volume}% {icon} {format_source}";
-    format-bluetooth = "{volume}% {icon} {format_source}";
-    format-bluetooth-muted = "󰝟 {icon} {format_source}";
-    format-muted = "󰝟 {format_source}";
-    format-source = " {volume}% ";
-    format-source-muted = " ";
-    format-icons = {
-      headphone = "󰋋";
-      hands-free = "󰟅";
-      headset = "󰋎";
-      phone = "";
-      portable = "";
-      car = "";
-      default = ["" "" ""];
+    temperature = {
+      # "thermal-zone = 2,
+      # "hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input",
+      critical-threshold = 80;
+      # "format-critical = "{temperatureC}°C {icon}",
+      format = "{temperatureC}°C {icon}";
+      format-icons = ["" "" " "];
     };
-    on-click = "pavucontrol";
-  };
-  "custom/media" = {
-    format = "{icon} {}";
-    return-type = "json";
-    max-length = 40;
-    format-icons = {
-      spotify = "";
-      default = "🎜";
+    backlight = {
+      # "device = "acpi_video1",
+      format = "{percent}% {icon}";
+      format-icons = ["" "" "" "" "" "" "" "" ""];
     };
-    escape = true;
-    exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"; # Script in resources folder
-    # exec = "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" # Filter player based on name
-  };
-  "custom/archicon" = {
-    format = "󰣇";
-    # "on-click":"nwg-menu -d -fm nemo -cmd-lock gtklock -va top",
-    on-click = "jgmenu_run";
-    tooltip = false;
-  };
+    battery = {
+      bat = "BAT0";
+      states = {
+        # good = 95,
+        warning = 30;
+        critical = 15;
+      };
+      format = "{capacity}% {icon}";
+      format-charging = "{capacity}% ";
+      format-plugged = "{capacity}% ";
+      format-alt = "{time} {icon}";
+      # "format-good = "", # An empty format will hide the module
+      # "format-full = "",
+      format-icons = ["" "" "" "" ""];
+    };
+    network = {
+      # "interface = "wlp2*", # (Optional) To force the use of this interface
+      format-wifi = "{essid} ({signalStrength}%) ";
+      format-ethernet = "{ipaddr}/{cidr} 󰈀";
+      tooltip-format = "{ifname} via {gwaddr} ";
+      format-linked = "{ifname} (No IP) ";
+      format-disconnected = "Disconnected ⚠";
+      format-alt = "{ifname}: {ipaddr}/{cidr}";
+      on-click-right = "kitty nmtui";
+    };
+    pulseaudio = {
+      # "scroll-step = 1, # %, can be a float
+      format = "{volume}% {icon} {format_source}";
+      format-bluetooth = "{volume}% {icon} {format_source}";
+      format-bluetooth-muted = "󰝟 {icon} {format_source}";
+      format-muted = "󰝟 {format_source}";
+      format-source = " {volume}% ";
+      format-source-muted = " ";
+      format-icons = {
+        headphone = "󰋋";
+        hands-free = "󰟅";
+        headset = "󰋎";
+        phone = "";
+        portable = "";
+        car = "";
+        default = ["" "" ""];
+      };
+      on-click = "pavucontrol";
+    };
+    "custom/media" = {
+      format = "{icon} {}";
+      return-type = "json";
+      max-length = 40;
+      format-icons = {
+        spotify = "";
+        default = "🎜";
+      };
+      escape = true;
+      exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"; # Script in resources folder
+      # exec = "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" # Filter player based on name
+    };
+    "custom/archicon" = {
+      format = "󰣇";
+      # "on-click":"nwg-menu -d -fm nemo -cmd-lock gtklock -va top",
+      on-click = "jgmenu_run";
+      tooltip = false;
+    };
     };
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -290,8 +290,8 @@
         }
 
         window#waybar {
-            background-color: @background-hard-contrast;
-            color: @foreground;
+            background-color: @surface;
+            color: @text;
             transition-property: background-color;
             transition-duration: 0.5s;
             border-radius: 10px;
@@ -321,8 +321,8 @@
         #workspaces button {
             box-shadow: inset 0 -3px transparent;
             padding: 0 8px;
-            background-color: @background;
-            color: @foreground;
+            background-color: @base;
+            color: @text;
             border: none;
             border-radius: 0;
             font-weight: 800;
@@ -339,36 +339,36 @@
         /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
         #workspaces button:hover {
             background: rgba(0, 0, 0, 0.2);
-            background-color: @background-soft-contrast;
+            background-color: @overlay;
             /* box-shadow: inset 0 -100px 0 -97px @bright-yellow; */
         }
 
         #workspaces button.empty {
-            color: @foreground-soft-contrast;
+            color: @muted;
             box-shadow: inherit;
             text-shadow: inherit;
         }
 
         #workspaces button.active {
-            color: @yellow;
+            color: @gold;
             box-shadow: inset 0 -100px 0 -97px @bright-yellow;
             text-shadow: inherit;
         }
 
         #workspaces button.focused {
-            background-color: @background-soft-contrast;
-            color: @foreground;
+            background-color: @overlay;
+            color: @text;
             /* box-shadow: inset 0 -100px 0 -97px @bright-yellow; */
         }
 
         #workspaces button.urgent {
-            background-color: @bright-red;
-            color: @background;
+            background-color: @love;
+            color: @base;
         }
 
         #mode {
-            background-color: @background-soft-contrast;
-            border-bottom: 3px solid @yellow;
+            background-color: @overlay;
+            border-bottom: 3px solid @gold;
         }
 
         #cava,
@@ -394,7 +394,7 @@
         #scratchpad,
         #mpd {
             padding: 0 10px;
-            color: @foreground;
+            color: @text;
         }
 
         #window,
@@ -404,7 +404,7 @@
         }
 
         .modules-right {
-            background-color: @background-soft-contrast;
+            background-color: @overlay;
             border-radius: 10px;
         }
 
@@ -419,15 +419,15 @@
         }
 
         #mpris {
-            color: @yellow;
+            color: @gold;
         }
 
         #clock {
-            color: @yellow;
+            color: @gold;
         }
 
         #battery {
-            color: @blue;
+            color: @foam;
         }
 
         #battery.charging,
@@ -470,20 +470,20 @@
         }
 
         #cpu {
-            color: @blue;
+            color: @foam;
         }
 
         #memory {
-            color: @magenta;
+            color: @iris;
         }
 
         #network {
-            color: @blue;
+            color: @foam;
         }
 
         #network.disconnected {
-            background-color: @bright-red;
-            color: @background;
+            background-color: @love;
+            color: @base;
         }
 
         /*#disk {
@@ -493,15 +493,15 @@
         #pulseaudio,
         #pulseaudio.muted,
         #pulseaudio.bluetooth {
-            color: @cyan;
+            color: @pine;
         }
 
         #tray {
         }
 
         #tray > .needs-attention {
-            background-color: @bright-red;
-            color: @background;
+            background-color: @love;
+            color: @base;
         }
 
         #idle_inhibitor {
