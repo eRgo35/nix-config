@@ -2,7 +2,7 @@
 {
   services.xserver = {
     enable = true;
-    xkb.layout = "fr";
+    xkb.layout = "pl";
     xkb.variant = "";
     excludePackages = [ pkgs.xterm ];
   };

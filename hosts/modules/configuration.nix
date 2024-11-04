@@ -11,9 +11,12 @@
   services = {
     logind = {
       lidSwitch = "ignore";
-      lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate";
+      # lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate";
+      lidSwitchExternalPower = "ignore";
     };
   };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   system = {
     stateVersion = "24.05";

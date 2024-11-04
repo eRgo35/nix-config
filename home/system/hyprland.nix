@@ -655,27 +655,44 @@ windowrulev2 = noblur,class:^(xwaylandvideobridge)$
 
       listener = [
 
+        # {
+        #   timeout = 60;
+        #   on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
+        #   on-resume = "brightnessctl -rd asus::kbd_backlight";
+        # }
+
+        # {
+        #   timeout = 80;
+        #   on-timeout = "brightnessctl -s set 0";
+        #   on-resume = "brightnessctl -r";
+        # }
+
+        # {
+        #   timeout = 100;
+        #   on-timeout = "hyprctl dispatch dpms off ";
+        #   on-resume = "hyprctl dispatch dpms on";
+        # }
+
+        # {
+        #   timeout = 150;
+        #   on-timeout = "systemctl suspend";
+        # }
         {
-          timeout = 60;
-          on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
-          on-resume = "brightnessctl -rd asus::kbd_backlight";
+          timeout = 300;                                # 5min
+          on-timeout = "brightnessctl -s set 10";         # set monitor backlight to minimum, avoid 0 on OLED monitor.
+          on-resume = "brightnessctl -r";                 # monitor backlight restore.
         }
 
         {
-          timeout = 80;
-          on-timeout = "brightnessctl -s set 0";
-          on-resume = "brightnessctl -r";
+          timeout = 600;                                 # 10min
+          on-timeout = "loginctl lock-session";            # lock screen when timeout has passed
         }
 
         {
-          timeout = 100;
-          on-timeout = "hyprctl dispatch dpms off ";
-          on-resume = "hyprctl dispatch dpms on";
-        }
-
-        {
-          timeout = 150;
-          on-timeout = "systemctl suspend";
+          timeout = 1800;                                 # 30min
+          on-timeout = "systemctl hibernate";
+          # on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed
+          # on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
         }
       ];
     };

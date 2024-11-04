@@ -14,7 +14,7 @@
       ./modules/security.nix
       ./modules/pipewire.nix
       ./modules/gsettings.nix
-      ./modules/bluetooth.nix
+      # ./modules/bluetooth.nix
       ./modules/packages.nix
       # ./modules/lanzaboot.nix
       ./modules/configuration.nix

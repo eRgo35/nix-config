@@ -48,10 +48,10 @@
 
       "symbols.hidesExplorerArrows" = false;
 
-      "workbench.iconTheme" = "vs-minimal";
-      "workbench.colorTheme" = "Rose Pine";
-      "workbench.preferredDarkColorTheme" = "Rose Pine";
-      "workbench.preferredHighContrastColorTheme" = "Rose Pine";
+      "workbench.iconTheme" = "rose-pine-icons";
+      "workbench.colorTheme" = "Rosé Pine";
+      "workbench.preferredDarkColorTheme" = "Rosé Pine";
+      "workbench.preferredHighContrastColorTheme" = "Rosé Pine";
 
     };
   };
