@@ -1,36 +1,85 @@
 { pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
-    # DEV
+    # > graphics < #
+    tuxpaint
+    krita
+
+    # > terminal < #
+    kitty
+    kitty-themes
+
+    # > tools < #
+    git
+    wget
+    eza
+    yt-dlp
+    ffmpeg
+    texlive.combined.scheme-full
+    fastfetch
+    zoxide
+    btop
+    htop
+    killall
+    woeusb
+    pavucontrol
+    steam-run
+    unzip
+    openvpn
+    wol
+    direnv
+    p7zip
+    hoppscotch
+    networkmanagerapplet
+    protonvpn-cli_2
     python3
-    # MEDIA
-    mpv
-    imv
     pwvucontrol
 
-    # CONNECTIONS
-    overskride
-    protonvpn-cli_2
-    networkmanagerapplet
+    # > media < #
+    spotify
+    vlc
+    mpv
+    obs-studio
+    okular
 
-    # APPS
-    floorp
-    spotube
-    vesktop
-    nautilus
+
+    # > desktop < #
+    firefox
+    telegram-desktop
+    google-chrome
+    evolution
+    obsidian
+    foliate
+    helio-workstation
     keepassxc
-    whatsapp-for-linux
+    vesktop
 
+    # > gaming < #
+    prismlauncher
+    classicube
+    steam
+
+    # > development < #
+    podman
+    podman-compose
+    seahorse
+    platformio
+    iwgtk
+    imv
+    neovide
+    feh
+    zed-editor
+    zint
+    tmux
+    zip
+    unzip
+    pavucontrol
     libreoffice
     qalculate-gtk
-
-    # Utilities
-    ventoy-full
     file-roller
     vim
-    firefox
     rofi
-    nixfmt
+    nixfmt-rfc-style
     nemo
     neovim
   ];

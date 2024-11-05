@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -8,7 +7,7 @@
       ms-python.python
       ms-python.debugpy
       jnoortheen.nix-ide
-      catppuccin.catppuccin-vsc
+      mvllow.rose-pine
     ];
 
     userSettings = {
@@ -34,7 +33,8 @@
             "expr" = "import <nixpkgs> { }";
             "options" = {
               "nixos" = {
-                "expr" = "(builtins.getFlake \"/home/nel/Dotfiles\").nixosConfigurations.laptop.options";
+                "expr" = ''
+                  (builtins.getFlake "/home/mike/.files").nixosConfigurations.zion.options'';
               };
             };
           };
@@ -49,11 +49,10 @@
 
       "symbols.hidesExplorerArrows" = false;
 
-      "catppuccin.accentColor" = "blue";
-      "workbench.iconTheme" = "vs-minimal";
-      "workbench.colorTheme" = "Catppuccin Mocha";
-      "workbench.preferredDarkColorTheme" = "Catppuccin Mocha";
-      "workbench.preferredHighContrastColorTheme" = "Catppuccin Mocha";
+      "workbench.iconTheme" = "rose-pine-icons";
+      "workbench.colorTheme" = "Rosé Pine";
+      "workbench.preferredDarkColorTheme" = "Rosé Pine";
+      "workbench.preferredHighContrastColorTheme" = "Rosé Pine";
 
     };
   };

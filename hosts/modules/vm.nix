@@ -18,6 +18,9 @@
   services.spice-vdagentd.enable = true;
 
   virtualisation = {
+    podman = {
+      enable = true;
+    };
     spiceUSBRedirection.enable = true;
     libvirtd = {
       enable = true;

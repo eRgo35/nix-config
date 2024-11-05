@@ -1,7 +1,19 @@
-{ hostname, inputs, ... }:
+{ hostname, inputs, pkgs, ... }:
 {
   time.timeZone = "Europe/Warsaw";
   i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "pl_PL.UTF-8";
+    LC_IDENTIFICATION = "pl_PL.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "pl_PL.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "pl_PL.UTF-8";
+    LC_TELEPHONE = "pl_PL.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
 
   hardware.graphics = {
     enable = true;
@@ -16,7 +28,11 @@
     };
   };
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment = {
+    sessionVariables.NIXOS_OZONE_WL = "1";
+
+    shells = with pkgs; [ bash zsh ];
+  };
 
   system = {
     stateVersion = "24.05";
@@ -26,15 +42,20 @@
     };
   };
 
-  nixpkgs = { config = { allowUnfree = true; }; };
+  nixpkgs = {
+    config = {
+      # I'm sorry Richard Stallman
+      allowUnfree = true;
+    };
+  };
 
   documentation = {
-    enable = false;
+    enable = true;
     doc.enable = false;
-    man.enable = false;
+    man.enable = true;
     dev.enable = false;
     info.enable = false;
-    nixos.enable = false;
+    nixos.enable = true;
   };
 
   nix = {

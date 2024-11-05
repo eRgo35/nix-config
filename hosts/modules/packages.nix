@@ -6,7 +6,10 @@
     dosfstools
     nix-output-monitor
     nvd
+    brightnessctl
   ];
+
+  programs.zsh.enable = true;
 
   fonts.packages = with pkgs; [
     nerdfonts
@@ -25,6 +28,12 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    settings = {
+      max-cache-ttl = 60480000;
+      default-cache-ttl = 60480000;
+      # default-cache-ttl-ssh = 60480000;
+      # max-cache-ttl-ssl = 60480000;
+    };
   };
 
 }

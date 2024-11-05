@@ -18,33 +18,35 @@
     autoEnable = true;
 
     targets = {
-      foot.enable = false;
+      gnome.enable = true;
+      gtk.enable = true;
+      # foot.enable = false;
       wofi.enable = false;
-      tofi.enable = false;
+      # tofi.enable = false;
       vscode.enable = false;
       waybar.enable = false;
       hyprland.enable = false;
     };
 
-    image = ../wallpapers/nixppuccin.png;
+    image = ../wallpapers/blockwavemoon.png;
 
     override = {
-      base00 = "1e1e2e"; # base
-      base01 = "181825"; # mantle
-      base02 = "313244"; # surface0
-      base03 = "45475a"; # surface1
-      base04 = "585b70"; # surface2
-      base05 = "cdd6f4"; # text
-      base06 = "f5e0dc"; # rosewater
-      base07 = "b4befe"; # lavender
-      base08 = "f38ba8"; # red
-      base09 = "fab387"; # peach
-      base0A = "f9e2af"; # yellow
-      base0B = "a6e3a1"; # green
-      base0C = "94e2d5"; # teal
-      base0D = "89b4fa"; # blue
-      base0E = "cba6f7"; # mauve
-      base0F = "f2cdcd"; # flamingo
+      base00 = "191724";
+      base01 = "1f1d2e";
+      base02 = "26233a";
+      base03 = "6e6a86";
+      base04 = "908caa";
+      base05 = "e0def4";
+      base06 = "e0def4";
+      base07 = "524f67";
+      base08 = "eb6f92";
+      base09 = "f6c177";
+      base0A = "ebbcba";
+      base0B = "31748f";
+      base0C = "9ccfd8";
+      base0D = "c4a7e7";
+      base0E = "f6c177";
+      base0F = "524f67";
     };
 
     cursor = {

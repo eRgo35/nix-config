@@ -6,6 +6,7 @@
     ports = [ 22 ];
 
     settings = {
+      PermitRootLogin = "no";
       PasswordAuthentication = true;
       UseDns = true;
     };

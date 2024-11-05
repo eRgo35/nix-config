@@ -1,11 +1,20 @@
-{ inputs, username, hostname, ... }:
+{ inputs, username, hostname, pkgs, ... }:
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
+
+  users.defaultUserShell = pkgs.zsh;
 
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "games"
+      "dialout"
+      "libvirtd"
+    ];
   };
 
   home-manager = {
