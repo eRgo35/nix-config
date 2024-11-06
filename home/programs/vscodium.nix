@@ -1,19 +1,25 @@
 { pkgs, ... }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = pkgs.vscodium-fhs;
 
     extensions = with pkgs.vscode-extensions; [
       ms-python.python
       ms-python.debugpy
       jnoortheen.nix-ide
       mvllow.rose-pine
+      github.copilot
+      github.copilot-chat
+      ms-vsliveshare.vsliveshare
+      rust-lang.rust-analyzer
     ];
 
     userSettings = {
 
-      "editor.fontSize" = 18;
+      "editor.fontSize" = 16;
+      "editor.fontFamily" = "FiraCode Nerd Font";
       "explorer.confirmDelete" = false;
+      "disable-hardware-acceleration" = true;
       "explorer.confirmDragAndDrop" = true;
       "git.openRepositoryInParentFolders" = "never";
 
@@ -47,7 +53,7 @@
       "editor.formatOnPaste" = true;
       "editor.minimap.enabled" = false;
 
-      "symbols.hidesExplorerArrows" = false;
+      # "symbols.hidesExplorerArrows" = false;
 
       "workbench.iconTheme" = "rose-pine-icons";
       "workbench.colorTheme" = "Rosé Pine";

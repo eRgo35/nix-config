@@ -1,12 +1,12 @@
-{
+{ lib, ... }: {
   programs.kitty = {
     enable = true;
     font = {
-      name = "FiraCode Nerd Font";
+      name = lib.mkForce "FiraCode Nerd Font";
       size = 12;
     };
 
-    themeFile = "Rose Pine";
+    themeFile = "rose-pine";
 
     settings = {
       confirm_os_window_close = 0;

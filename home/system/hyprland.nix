@@ -353,6 +353,8 @@
       # SSH Agents
       env = SSH_AUTH_SOCK,$XDG_RUNTIME_DIR/ssh-agent.socket
 
+      env = NIXOS_OZONE_WL,1
+
       #####################
       ### LOOK AND FEEL ###
       #####################
