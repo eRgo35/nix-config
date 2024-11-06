@@ -42,7 +42,6 @@
     obs-studio
     okular
 
-
     # > desktop < #
     firefox
     telegram-desktop

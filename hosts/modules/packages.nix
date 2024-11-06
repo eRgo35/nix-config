@@ -9,6 +9,21 @@
     brightnessctl
   ];
 
+  services.zerotierone = {
+    enable = true;
+  };
+
+  services.flatpak.enable = true;
+
+  xdg.portal = {
+    enable = true;
+
+    configPackages = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ];
+  };
+
   programs.zsh.enable = true;
 
   fonts.packages = with pkgs; [

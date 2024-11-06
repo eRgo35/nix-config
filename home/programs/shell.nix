@@ -54,5 +54,32 @@
         startupctl = "systemctl list-unit-files --type=service | grep enabled";
       };
     };
+
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+
+      shellAliases = {
+        fetch = "fastfetch";
+        rebuild = "nh os switch";
+        update = "nh os switch --update";
+        garbage = "nh clean all && sudo bootctl cleanup ";
+
+        hxd = "hx ~/.files/";
+        hxc = "hx ~/code/";
+
+        ls = "eza";
+        la = "eza -a";
+        ll = "eza -l";
+        lr = "eza -R";
+        tree = "eza -T";
+
+        ".." = "cd ..";
+
+        grep = "grep --color=auto";
+
+        startupctl = "systemctl list-unit-files --type=service | grep enabled";
+      };
+    };
   };
 }
