@@ -1,6 +1,12 @@
 {
   programs.kitty = {
     enable = true;
+    font = {
+      name = "FiraCode Nerd Font";
+      size = 12;
+    };
+
+    themeFile = "Rose Pine";
 
     settings = {
       confirm_os_window_close = 0;

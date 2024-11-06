@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
 
-    userName = "Michał Czyż";
+    userName = "Michał Czyż";
     userEmail = "mike@c2yz.com";
 
     extraConfig = {

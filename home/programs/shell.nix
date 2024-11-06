@@ -1,3 +1,9 @@
+{ pkgs
+, ...
+}:
+let
+  cli = import ../configs/aliases.nix;
+in
 {
   programs = {
     zoxide.enable = true;
@@ -32,54 +38,42 @@
     bash = {
       enable = true;
       enableCompletion = true;
-      shellAliases = {
-        fetch = "fastfetch";
-        rebuild = "nh os switch";
-        update = "nh os switch --update";
-        garbage = "nh clean all && sudo bootctl cleanup ";
-
-        hxd = "hx ~/.files/";
-        hxc = "hx ~/code/";
-
-        ls = "eza";
-        la = "eza -a";
-        ll = "eza -l";
-        lr = "eza -R";
-        tree = "eza -T";
-
-        ".." = "cd ..";
-
-        grep = "grep --color=auto";
-
-        startupctl = "systemctl list-unit-files --type=service | grep enabled";
-      };
+      shellAliases = cli.myAliases;
     };
 
     zsh = {
       enable = true;
       enableCompletion = true;
+      history.size = 10000000;
 
-      shellAliases = {
-        fetch = "fastfetch";
-        rebuild = "nh os switch";
-        update = "nh os switch --update";
-        garbage = "nh clean all && sudo bootctl cleanup ";
+      shellAliases = cli.myAliases;
 
-        hxd = "hx ~/.files/";
-        hxc = "hx ~/code/";
+      # plugins = [
+      #   {
+      #     name = "powerlevel10k";
+      #     src = pkgs.zsh-powerlevel10k;
+      #     file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      #   }
+      # ];
 
-        ls = "eza";
-        la = "eza -a";
-        ll = "eza -l";
-        lr = "eza -R";
-        tree = "eza -T";
+      enableAutosuggestions = true;
 
-        ".." = "cd ..";
-
-        grep = "grep --color=auto";
-
-        startupctl = "systemctl list-unit-files --type=service | grep enabled";
+      syntaxHighlighting = {
+        enable = true;
       };
+
+      historySubstringSearch = {
+        enable = true;
+      };
+
+      initExtra = ''
+        # [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}
+        eval "$(zoxide init --cmd cd zsh)"
+        # if [ -x "$(command -v tmux)" ] && [ -n "$DISPLAY" ] && [ -z "$TMUX" ]; then
+          # exec tmux new-session -A -s $USER >/dev/null 2>&1
+          # exec tmux new-session -t $USER >/dev/null 2>&1 | tmux new-session -A -s $USER >/dev/null 2>&1
+        # fi
+      '';
     };
   };
 }

@@ -296,6 +296,7 @@
       exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       # exec-once=zsh $HOME/.config/hypr/autostart.sh
       exec-once = waybar
+      exec-once = keepassxc
 
       #############################
       ### ENVIRONMENT VARIABLES ###
@@ -403,6 +404,7 @@
 
       cursor {
           no_hardware_cursors = true
+          inactive_timeout = 5
       }
 
       # https://wiki.hyprland.org/Configuring/Variables/#animations

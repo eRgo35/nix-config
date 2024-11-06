@@ -65,11 +65,9 @@
     platformio
     iwgtk
     imv
-    neovide
     feh
     zed-editor
     zint
-    tmux
     zip
     unzip
     pavucontrol
@@ -77,9 +75,7 @@
     qalculate-gtk
     file-roller
     vim
-    rofi
     nixfmt-rfc-style
     nemo
-    neovim
   ];
 }
