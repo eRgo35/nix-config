@@ -77,5 +77,6 @@
     vim
     nixfmt-rfc-style
     nemo
+    nix-direnv
   ];
 }

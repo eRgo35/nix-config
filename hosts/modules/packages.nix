@@ -9,6 +9,8 @@
     brightnessctl
   ];
 
+  programs.nix-ld.enable = true;
+
   services.zerotierone = {
     enable = true;
   };
@@ -42,7 +44,7 @@
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    enableSSHSupport = true;
+    enableSSHSupport = false;
     settings = {
       max-cache-ttl = 60480000;
       default-cache-ttl = 60480000;

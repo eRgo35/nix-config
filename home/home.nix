@@ -19,6 +19,8 @@
         # ./programs/yazi.nix
         # ./programs/zathura.nix
 
+        # ./configs/keys.nix
+
         ./system/dunst.nix
         ./system/hyprland.nix
         ./system/rofi.nix

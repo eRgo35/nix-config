@@ -5,6 +5,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nur.url = "github:nix-community/NUR";
+    nix-alien.url = "github:thiagokokada/nix-alien";
 
     hyprsunset.url = "github:hyprwm/hyprsunset";
     hyprsysteminfo.url = "github:/hyprwm/hyprsysteminfo";

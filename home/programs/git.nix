@@ -1,4 +1,4 @@
-{
+{ pkgs, config, ... }: {
   programs.git = {
     enable = true;
 
@@ -15,6 +15,17 @@
       branch.sort = "-committerdate";
       pull.rebase = "false";
       rerere.enabled = true;
+      # gpg = {
+      #   format = "ssh";
+      #   ssh.defaultKeyCommand = pkgs.writeShellScript "git_key" ''
+      #     if ssh-add -L | grep -vq '${config.local.keys.senpai}'; then
+      #       ssh-add -t 1m ~/.ssh/id_ed25519
+      #     fi
+      #     echo 'key::${config.local.keys.senpai}'
+      #   '';
+      # };
+      push.gpgsign = "if-asked";
     };
   };
+
 }

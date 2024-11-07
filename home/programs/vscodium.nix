@@ -1,15 +1,24 @@
 { pkgs, ... }: {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium-fhs;
+    package = pkgs.vscodium.fhsWithPackages (ps: with ps; [
+      rustup
+      zlib
+      openssl.dev
+      pkg-config
+      nixfmt-rfc-style
+      python3
+    ]);
 
     extensions = with pkgs.vscode-extensions; [
       ms-python.python
       ms-python.debugpy
       jnoortheen.nix-ide
+      mkhl.direnv
+      arrterian.nix-env-selector
       mvllow.rose-pine
       github.copilot
-      github.copilot-chat
+      # github.copilot-chat
       ms-vsliveshare.vsliveshare
       rust-lang.rust-analyzer
     ];
