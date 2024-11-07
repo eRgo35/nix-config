@@ -12,4 +12,7 @@
     };
   };
 
+  programs.ssh = {
+    startAgent = true;
+  };
 }

@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   home.packages = with pkgs; [
     # > graphics < #
     tuxpaint
@@ -77,6 +80,5 @@
     vim
     nixfmt-rfc-style
     nemo
-    nix-direnv
   ];
 }
