@@ -49,6 +49,7 @@
     firefox
     telegram-desktop
     google-chrome
+    chromium
     evolution
     obsidian
     foliate
@@ -80,5 +81,6 @@
     vim
     nixfmt-rfc-style
     nemo
+    nixd
   ];
 }
