@@ -6,7 +6,8 @@
   home.packages = with pkgs; [
     # > graphics < #
     tuxpaint
-    krita
+    # krita
+    gimp
 
     # > terminal < #
     kitty

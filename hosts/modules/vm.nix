@@ -13,6 +13,7 @@
     win-virtio
     win-spice
     adwaita-icon-theme
+    distrobox
   ];
 
   services.spice-vdagentd.enable = true;
@@ -20,6 +21,7 @@
   virtualisation = {
     podman = {
       enable = true;
+      dockerCompat = true;
     };
     spiceUSBRedirection.enable = true;
     libvirtd = {
