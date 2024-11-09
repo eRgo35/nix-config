@@ -6,6 +6,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nur.url = "github:nix-community/NUR";
     nix-alien.url = "github:thiagokokada/nix-alien";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
 
     hyprsunset.url = "github:hyprwm/hyprsunset";
     hyprsysteminfo.url = "github:/hyprwm/hyprsysteminfo";

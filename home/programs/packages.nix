@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
@@ -57,6 +57,7 @@
     helio-workstation
     keepassxc
     vesktop
+    inputs.zen-browser.packages."${system}".default
 
     # > gaming < #
     prismlauncher
@@ -83,5 +84,6 @@
     nixfmt-rfc-style
     nemo
     nixd
+    glfw-wayland-minecraft
   ];
 }
