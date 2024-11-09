@@ -26,6 +26,14 @@
       # lidSwitchExternalPower = if hostname == "server" then "ignore" else "suspend-then-hibernate";
       lidSwitchExternalPower = "ignore";
     };
+
+    libinput = {
+      enable = true;
+      mouse = {
+        accelProfile = "flat";
+        accelSpeed = "0.0";
+      };
+    };
   };
 
   environment = {
