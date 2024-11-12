@@ -57,11 +57,7 @@
     helio-workstation
     keepassxc
     # vesktop
-    (self: super: {
-      equibop = super.equibop.override {
-        commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
-      };
-    })
+    equibop
     inputs.zen-browser.packages."${system}".default
 
     # > gaming < #
