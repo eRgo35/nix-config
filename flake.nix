@@ -7,6 +7,7 @@
     nur.url = "github:nix-community/NUR";
     nix-alien.url = "github:thiagokokada/nix-alien";
     zen-browser.url = "github:eRgo35/zen-browser-flake";
+    rosepine-kvantum.url = "github:eRgo35/RosePine-Kvantum";
 
     hyprsunset.url = "github:hyprwm/hyprsunset";
     hyprsysteminfo.url = "github:/hyprwm/hyprsysteminfo";
@@ -50,35 +51,37 @@
     };
   };
 
-  outputs = { nixpkgs, ... } @inputs: {
+  outputs =
+    { nixpkgs, ... }@inputs:
+    {
 
-    nixosConfigurations = {
-      zion = nixpkgs.lib.nixosSystem {
-        modules = [ ./hosts ];
-        specialArgs = {
-          inherit inputs;
-          username = "mike";
-          hostname = "zion";
+      nixosConfigurations = {
+        zion = nixpkgs.lib.nixosSystem {
+          modules = [ ./hosts ];
+          specialArgs = {
+            inherit inputs;
+            username = "mike";
+            hostname = "zion";
+          };
         };
-      };
 
-      thor = nixpkgs.lib.nixosSystem {
-        modules = [ ./hosts ];
-        specialArgs = {
-          inherit inputs;
-          username = "mike";
-          hostname = "thor";
+        thor = nixpkgs.lib.nixosSystem {
+          modules = [ ./hosts ];
+          specialArgs = {
+            inherit inputs;
+            username = "mike";
+            hostname = "thor";
+          };
         };
-      };
 
-      server = nixpkgs.lib.nixosSystem {
-        modules = [ ./hosts ];
-        specialArgs = {
-          inherit inputs;
-          username = "mike";
-          hostname = "server";
+        server = nixpkgs.lib.nixosSystem {
+          modules = [ ./hosts ];
+          specialArgs = {
+            inherit inputs;
+            username = "mike";
+            hostname = "server";
+          };
         };
       };
     };
-  };
 }
