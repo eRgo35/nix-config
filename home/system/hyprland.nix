@@ -21,6 +21,7 @@
     wev
     wlr-randr
     wdisplays
+    wl-clipboard
     # wl-copy
     # wl-paste
     # wf-recorder
