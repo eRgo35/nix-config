@@ -57,6 +57,7 @@
     helio-workstation
     keepassxc
     vesktop
+    equibop
     inputs.zen-browser.packages."${system}".default
 
     # > gaming < #
