@@ -2,11 +2,11 @@
 {
   imports = [ inputs.stylix.homeManagerModules.stylix ];
 
-  qt = {
-    enable = false;
-    style.name = "gtk2";
-    platformTheme.name = "gtk";
-  };
+ #qt = {
+ #  enable = false;
+ #  style.name = "gtk2";
+ #  platformTheme.name = "gtk";
+ #};
 
   gtk.iconTheme = {
     name = "Papirus-Dark";

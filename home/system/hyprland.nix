@@ -282,7 +282,7 @@
       $menu = rofi -show drun
       $lock = $HOME/.config/hypr/lock.sh
       $editor = zed
-      $browser = firefox
+      $browser = zen-browser
       $picker = hyprpicker -a -f hex
 
       #################
@@ -296,7 +296,7 @@
       exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       # exec-once=zsh $HOME/.config/hypr/autostart.sh
       exec-once = waybar
-      exec-once = keepassxc
+      # exec-once = keepassxc
 
       #############################
       ### ENVIRONMENT VARIABLES ###
@@ -325,7 +325,7 @@
       env = WLR_NO_HARDWARE_CURSORS,1
       env = __NV_PRIME_RENDER_OFFLOAD,1
       env = __VK_LAYER_NV_optimus,NVIDIA_only
-      env = __GL_THREADED_OPTIMIZATIONS=0
+      env = __GL_THREADED_OPTIMIZATIONS,0
 
       # Wayland enforce
       env = QT_QPA_PLATFORM,wayland

@@ -47,7 +47,7 @@
     okular
 
     # > desktop < #
-    firefox
+    # firefox
     telegram-desktop
     google-chrome
     chromium
@@ -56,7 +56,7 @@
     foliate
     helio-workstation
     keepassxc
-    vesktop
+    # vesktop
     equibop
     inputs.zen-browser.packages."${system}".default
 

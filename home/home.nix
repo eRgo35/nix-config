@@ -25,6 +25,7 @@
         ./system/hyprland.nix
         ./system/rofi.nix
         ./system/stylix.nix
+	./system/theme.nix
         ./system/waybar.nix
         ./system/wlsunset.nix
         ./system/wofi.nix
