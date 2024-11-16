@@ -22,6 +22,7 @@
       ./modules/packages.nix
       ./modules/pipewire.nix
       ./modules/printing.nix
+      ./modules/remote-builder.nix
       ./modules/security.nix
       ./modules/ssh.nix
       ./modules/users.nix
