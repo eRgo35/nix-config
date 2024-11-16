@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 {
   # ------------------------------------------------
   # Needed Packages
@@ -710,7 +710,7 @@
   programs.hyprlock = {
     enable = true;
 
-    settings = {
+    settings = lib.mkForce {
 
       general = {
         grace = 5;
