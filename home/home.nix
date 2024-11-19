@@ -14,7 +14,6 @@
         ./programs/neovim.nix
         ./programs/packages.nix
         ./programs/shell.nix
-	./programs/steam.nix
         ./programs/tmux.nix
         ./programs/vscodium.nix
         # ./programs/yazi.nix
