@@ -63,7 +63,6 @@
     # > gaming < #
     prismlauncher
     classicube
-    steam
 
     # > development < #
     podman
