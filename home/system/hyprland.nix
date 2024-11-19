@@ -290,7 +290,7 @@
       $terminal = kitty
       $fileManager = nemo
       $menu = rofi -show drun
-      $lock = $HOME/.config/hypr/lock.sh
+      $lock = pidof hyprlock || hyprlock
       $editor = zed
       $browser = zen-browser
       $picker = hyprpicker -a -f hex
