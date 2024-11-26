@@ -7,9 +7,12 @@
     nix-output-monitor
     nvd
     brightnessctl
+    teamviewer
   ];
 
   programs.nix-ld.enable = true;
+
+  services.teamviewer.enable = true;
 
   services.zerotierone = {
     enable = true;
