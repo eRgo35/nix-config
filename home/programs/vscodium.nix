@@ -1,14 +1,17 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium.fhsWithPackages (ps: with ps; [
-      rustup
-      zlib
-      openssl.dev
-      pkg-config
-      nixfmt-rfc-style
-      python3
-    ]);
+    package = pkgs.vscodium.fhsWithPackages (
+      ps: with ps; [
+        rustup
+        zlib
+        openssl.dev
+        pkg-config
+        nixfmt-rfc-style
+        python3
+      ]
+    );
 
     extensions = with pkgs.vscode-extensions; [
       ms-python.python
@@ -21,6 +24,7 @@
       # github.copilot-chat
       ms-vsliveshare.vsliveshare
       rust-lang.rust-analyzer
+      platformio.platformio-ide
     ];
 
     userSettings = {
@@ -48,8 +52,7 @@
             "expr" = "import <nixpkgs> { }";
             "options" = {
               "nixos" = {
-                "expr" = ''
-                  (builtins.getFlake "/home/mike/.files").nixosConfigurations.zion.options'';
+                "expr" = ''(builtins.getFlake "/home/mike/.files").nixosConfigurations.zion.options'';
               };
             };
           };
