@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium.fhsWithPackages (
+    package = pkgs.vscode.fhsWithPackages (
       ps: with ps; [
         rustup
         zlib
@@ -24,7 +24,6 @@
       # github.copilot-chat
       ms-vsliveshare.vsliveshare
       rust-lang.rust-analyzer
-      platformio.platformio-ide
     ];
 
     userSettings = {
