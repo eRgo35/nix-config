@@ -58,6 +58,7 @@
     keepassxc
     # vesktop
     equibop
+    ferdium
     inputs.zen-browser.packages."${system}".default
 
     # > gaming < #
