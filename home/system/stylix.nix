@@ -2,11 +2,11 @@
 {
   imports = [ inputs.stylix.homeManagerModules.stylix ];
 
- #qt = {
- #  enable = false;
- #  style.name = "gtk2";
- #  platformTheme.name = "gtk";
- #};
+  #qt = {
+  #  enable = false;
+  #  style.name = "gtk2";
+  #  platformTheme.name = "gtk";
+  #};
 
   gtk.iconTheme = {
     name = "Papirus-Dark";
@@ -62,17 +62,17 @@
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
+        package = pkgs.nerd-fonts.droid-sans-mono;
         name = "DroidSansMono";
       };
 
       sansSerif = {
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
+        package = pkgs.nerd-fonts.droid-sans-mono;
         name = "DroidSansMono";
       };
 
       serif = {
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
+        package = pkgs.nerd-fonts.droid-sans-mono;
         name = "DroidSansMono";
       };
     };
