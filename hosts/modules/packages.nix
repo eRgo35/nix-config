@@ -8,6 +8,7 @@
     nvd
     brightnessctl
     piper
+    alsa-utils
   ];
 
   programs.nix-ld.enable = true;
