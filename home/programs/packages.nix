@@ -66,6 +66,7 @@
     classicube
 
     # > development < #
+    android-studio
     podman
     podman-compose
     seahorse
