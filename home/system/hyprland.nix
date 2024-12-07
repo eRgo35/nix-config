@@ -338,8 +338,8 @@
       env = __GL_THREADED_OPTIMIZATIONS,0
 
       # Wayland enforce
-      # env = QT_QPA_PLATFORM,wayland
-      env = QT_QPA_PLATFORM,wayland;xcb
+      env = QT_QPA_PLATFORM,wayland
+      # env = QT_QPA_PLATFORM,wayland;xcb
       env = ELECTRON_OZONE_PLATFORM_HINT,wayland
       env = XDG_CURRENT_DESKTOP,Hyprland
       env = XDG_SESSION_DESKTOP,Hyprland
