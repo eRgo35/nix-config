@@ -56,10 +56,9 @@
     foliate
     helio-workstation
     keepassxc
-    tangram
     # vesktop
     equibop
-    ferdium
+    rambox
     inputs.zen-browser.packages."${system}".default
 
     # > gaming < #
