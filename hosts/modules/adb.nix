@@ -5,4 +5,5 @@
     pkgs.android-tools
     pkgs.universal-android-debloater
   ];
+  users.users.mike.extraGroups = [ "adbusers" ];
 }
