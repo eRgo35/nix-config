@@ -56,6 +56,7 @@
     foliate
     helio-workstation
     keepassxc
+    tangram
     # vesktop
     equibop
     ferdium
