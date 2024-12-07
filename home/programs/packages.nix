@@ -58,7 +58,6 @@
     keepassxc
     # vesktop
     equibop
-    rambox
     inputs.zen-browser.packages."${system}".default
 
     # > gaming < #
