@@ -11,15 +11,15 @@
     };
 
     gamemode = {
-      enable = false;
-      enableRenice = false;
+      enable = true;
+      enableRenice = true;
       settings = { };
     };
 
     gamescope = {
-      enable = false;
+      enable = true;
       args = [
-        "-w 1920 -h 1080"
+        "-w 2560 -h 1440"
         "-F nis"
         "f"
       ];

@@ -9,6 +9,7 @@
     brightnessctl
     piper
     alsa-utils
+    wine
   ];
 
   programs.nix-ld.enable = true;
