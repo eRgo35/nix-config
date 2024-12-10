@@ -192,9 +192,9 @@
       format-icons = ["" "" "" "" "" "" "" "" ""];
     };
     battery = {
-      bat = "BAT0";
+      # bat = "BAT0";
       states = {
-        # good = 95,
+        good = 95;
         warning = 30;
         critical = 15;
       };
@@ -205,6 +205,8 @@
       # "format-good = "", # An empty format will hide the module
       # "format-full = "",
       format-icons = ["" "" "" "" ""];
+      interval = 10;
+      weighted-average = true;
     };
     network = {
       # "interface = "wlp2*", # (Optional) To force the use of this interface
