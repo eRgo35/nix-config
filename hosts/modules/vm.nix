@@ -19,9 +19,8 @@
   services.spice-vdagentd.enable = true;
 
   virtualisation = {
-    podman = {
+    docker = {
       enable = true;
-      dockerCompat = true;
     };
     spiceUSBRedirection.enable = true;
     libvirtd = {

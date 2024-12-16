@@ -66,8 +66,8 @@
 
     # > development < #
     android-studio
-    podman
-    podman-compose
+    docker
+    docker-compose
     seahorse
     platformio
     iwgtk
