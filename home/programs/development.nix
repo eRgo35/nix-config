@@ -10,12 +10,12 @@
 
     # rust
     openssl
-    cargo
+    rustup
     pkg-config
     cargo-deny
     cargo-edit
     cargo-watch
-    rust-analyzer
+    # rust-analyzer
 
     # bash
     shellcheck
