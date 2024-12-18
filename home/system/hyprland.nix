@@ -1,9 +1,8 @@
-{
-  lib,
-  pkgs,
-  inputs,
-  hostname,
-  ...
+{ lib
+, pkgs
+, inputs
+, hostname
+, ...
 }:
 {
   # ------------------------------------------------
@@ -713,25 +712,30 @@
         else if hostname == "thor" then
           [
             {
-              timeout = 300;
+              timeout = 450;
               on-timeout = "brightnessctl -s set 0";
               on-resume = "brightnessctl -r";
             }
 
             {
-              timeout = 400; # 10min
+              timeout = 600;
               on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
             }
 
             {
-              timeout = 450;
+              timeout = 750;
               on-timeout = "hyprctl dispatch dpms off ";
               on-resume = "hyprctl dispatch dpms on";
             }
 
             {
-              timeout = 600;
+              timeout = 900;
               on-timeout = "systemctl suspend";
+            }
+
+            {
+              timeout = 1500;
+              on-timeout = "systemctl hibernate";
             }
           ]
         else
