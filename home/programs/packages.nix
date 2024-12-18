@@ -66,10 +66,7 @@
 
     # > development < #
     android-studio
-    docker
-    docker-compose
     seahorse
-    platformio
     iwgtk
     imv
     feh
@@ -82,7 +79,7 @@
     qalculate-gtk
     file-roller
     vim
-    nixfmt-rfc-style
+    # nixfmt-rfc-style
     nemo
     nixd
     glfw-wayland-minecraft

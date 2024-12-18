@@ -13,6 +13,11 @@
     hyprsysteminfo.url = "github:/hyprwm/hyprsysteminfo";
     hyprpolkitagent.url = "github:hyprwm/hyprpolkitagent";
 
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";

@@ -8,7 +8,7 @@
         zlib
         openssl.dev
         pkg-config
-        nixfmt-rfc-style
+        # nixfmt-rfc-style
         python3
       ]
     );
