@@ -10,6 +10,7 @@
         # ./modules/bluetooth.nix
         ./modules/boot.nix
         ./modules/configuration.nix
+        ./modules/development.nix
         ./modules/fstrim.nix
         ./modules/gaming.nix
         ./modules/greetd.nix
@@ -39,6 +40,7 @@
         ./modules/bluetooth.nix
         ./modules/boot.nix
         ./modules/configuration.nix
+        ./modules/development.nix
         ./modules/distributed-builds.nix
         ./modules/fstrim.nix
         ./modules/gaming.nix

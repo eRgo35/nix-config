@@ -4,7 +4,6 @@
     if hostname == "zion" then
       [
         ./programs/btop.nix
-        ./programs/development.nix
         ./programs/fastfetch.nix
         # ./programs/foot.nix
         ./programs/git.nix
@@ -34,7 +33,6 @@
     else if hostname == "thor" then
       [
         ./programs/btop.nix
-        ./programs/development.nix
         ./programs/fastfetch.nix
         # ./programs/foot.nix
         ./programs/git.nix
