@@ -1,6 +1,6 @@
 { inputs, pkgs, rust-overlay, ... }:
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     # general
     docker
     docker-compose
@@ -33,6 +33,7 @@
 
     # cpp
     clang-tools
+    libgcc
     cmake
     codespell
     conan
