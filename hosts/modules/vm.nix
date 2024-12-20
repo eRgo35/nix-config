@@ -14,6 +14,7 @@
     win-spice
     adwaita-icon-theme
     distrobox
+    nvidia-container-toolkit
   ];
 
   services.spice-vdagentd.enable = true;
