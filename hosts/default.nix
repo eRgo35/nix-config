@@ -27,9 +27,10 @@
         ./modules/remote-builder.nix
         ./modules/security.nix
         ./modules/ssh.nix
-	./modules/steam.nix
+      	./modules/steam.nix
         ./modules/users.nix
         ./modules/vm.nix
+        ./modules/xserver.nix
       ]
     else if hostname == "thor" then
       [
