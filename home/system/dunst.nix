@@ -5,21 +5,5 @@
   services.dunst = {
     enable = true;
     package = pkgs.dunst;
-
-    settings = {
-      global = {
-        follow = "mouse";
-
-        width = 600;
-        height = 400;
-
-        origin = "top-center";
-        offset = "0x10";
-      };
-
-      fullscreen_delay_everything = {
-        fullscreen = "delay";
-      };
-    };
   };
 }
