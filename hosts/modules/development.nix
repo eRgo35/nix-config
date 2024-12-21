@@ -34,6 +34,8 @@
     # cpp
     clang-tools
     libgcc
+    gcc
+    clang
     cmake
     codespell
     conan
