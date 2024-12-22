@@ -540,10 +540,10 @@
       bind = $mainMod, mouse:274, togglefloating
 
       # Super Rat Binds
-      bind = $mainMod, mouse:277, exec, amixer set Master playback 2%+
-      bind = $mainMod, mouse:278, exec, amixer set Master playback 2%-
-      # bind = $mainMod, mouse:279, exec, 
-      bind = $mainMod, mouse:280, exec, amixer set Capture toggle
+      bind = , mouse:277, exec, amixer set Master playback 2%+
+      bind = , mouse:278, exec, amixer set Master playback 2%-
+      # bind = , mouse:279, exec, 
+      bind = , mouse:280, exec, amixer set Capture toggle
 
       # Move focus with mainMod + vim keys
       bind = $mainMod, H, movefocus, l
