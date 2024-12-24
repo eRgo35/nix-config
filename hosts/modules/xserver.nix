@@ -9,8 +9,10 @@
   # X Server settings
   services.xserver = {
     enable = true;
-    layout = "pl";
-    xkbVariant = "";
+    xkb = {
+      layout = "pl";
+      variant = "";
+    };
     dpi = 100;
 
     displayManager = {
@@ -34,6 +36,17 @@
     windowManager = {
       hypr = {
         enable = true;
+      };
+      dwm = {
+        enable = true;
+        package = pkgs.dwm.overrideAttrs {
+          src = pkgs.fetchFromGitHub {
+            owner = "eRgo35";
+            repo = "dwm";
+            rev = "main";
+            hash = "sha256-yFEQRrU+3pxiY5gPEV7lGaTF0tm8DLiQyBRRbrqD8hU=";
+          };
+        };
       };
     };
 
