@@ -7,6 +7,11 @@
     hostName = "${hostname}";
     firewall.enable = true;
 
+    stevenblack = {
+      enable = true;
+      block = [ "fakenews" "gambling" "porn" ];
+    };
+
     wireless = {
       enable = false;
       iwd.enable = false;
