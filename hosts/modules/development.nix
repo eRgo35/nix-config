@@ -44,6 +44,7 @@
     gtest
     lcov
     vcpkg
+    gnumake
     # vcpkg-tool
     valgrind
 

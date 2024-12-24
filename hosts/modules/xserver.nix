@@ -6,6 +6,41 @@
   pkgs,
   ...
 }: {
+  environment.systemPackages = with pkgs; [
+    dmenu
+    st
+    xss-lock
+    xdg-desktop-portal-gtk
+    xorg.xrdb
+    xorg.xrandr
+    xorg.xset
+    xorg.xsetroot
+    xorg.setxkbmap
+    xorg.xbacklight
+    xorg.libX11
+    xorg.libX11.dev
+    xorg.libxcb
+    xorg.libXft
+    xorg.libXinerama
+    xorg.xinit
+    xorg.xinput
+    brightnessctl
+    xclip
+    arandr
+    w3m
+    fontconfig
+    freetype
+    gnumake
+    nfs-utils
+    ninja
+    openssl
+    polkit_gnome
+    stdenv
+    tldr
+    dconf
+  ];
+
+
   # X Server settings
   services.xserver = {
     enable = true;
