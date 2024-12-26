@@ -55,10 +55,9 @@
     obsidian
     foliate
     helio-workstation
-    keepassxc
     # vesktop
     equibop
-    inputs.zen-browser.packages."${system}".default
+    inputs.zen-browser
 
     # > gaming < #
     prismlauncher
