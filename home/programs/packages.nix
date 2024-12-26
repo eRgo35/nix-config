@@ -57,7 +57,7 @@
     helio-workstation
     # vesktop
     equibop
-    inputs.zen-browser
+    inputs.zen-browser.packages."${system}".default
 
     # > gaming < #
     prismlauncher
