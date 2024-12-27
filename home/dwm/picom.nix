@@ -6,7 +6,7 @@
 }: {
   services.picom = {
     enable = true;
-    package = pkgs.unstable.picom;
+    package = pkgs.picom;
     backend = "glx";
 
     shadow = true;

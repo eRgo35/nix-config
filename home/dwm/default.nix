@@ -36,8 +36,8 @@
     xclip
     # gnome.gnome-keyring
     feh
-    alsaUtils
-    cinnamon.nemo
+    alsa-utils
+    nemo
     pulseaudioFull
     arandr
     neomutt
@@ -52,18 +52,11 @@
     eww
     fontconfig
     freetype
-    fuse-common
-    gimp
     gnugrep
-    gnumake
     gparted
     nfs-utils
-    ninja
-    nodejs
     openssl
-    nerdfonts
     polkit_gnome
-    qemu
     ripgrep
     stdenv
     tldr
