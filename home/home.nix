@@ -16,6 +16,8 @@
         ./programs/shell.nix
         ./programs/tmux.nix
         ./programs/vscodium.nix
+
+        ./dwm
         # ./programs/yazi.nix
         # ./programs/zathura.nix
 

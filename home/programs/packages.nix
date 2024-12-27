@@ -48,6 +48,7 @@
 
     # > desktop < #
     # firefox
+    whatsapp-for-linux
     telegram-desktop
     google-chrome
     chromium

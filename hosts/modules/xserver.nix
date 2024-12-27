@@ -78,8 +78,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "eRgo35";
             repo = "dwm";
-            rev = "697d8236b237aa219595d54b0913acbc9582823f";
-            hash = "sha256-yFEQRrU+3pxiY5gPEV7lGaTF0tm8DLiQyBRRbrqD8hU=";
+            rev = "main";
+            hash = "";
           };
         };
       };
