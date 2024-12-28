@@ -88,8 +88,8 @@
       window-shader-fg-rule = [
         # "black_to_transparent.frag:class_g = 'stalonetray'",
         # "black_to_transparent.frag:class_g = 'Minecraft 1.7.10'",
-        # "black_to_transparent.frag:class_g = 'i3lock'"
-        # "black_to_transparent.frag:focused = true",
+        "black_to_transparent.frag:class_g = 'i3lock'"
+        "black_to_transparent.frag:focused = true"
         # "black_to_transparent.frag:focused != true",
         #"sphere.glsl:focused != true"
         #"nordify.glsl:class_g = 'miru'"
