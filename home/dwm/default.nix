@@ -76,6 +76,9 @@
     ".config/picom/black_to_transparent.frag" = {
       source = ./black_to_transparent.frag;
     };
+    ".config/bar.sh" = {
+      source = ./bar.sh;
+    };
     # ".Xresources" = {
     #   text = ''
     #     Xcursor.theme: "Bibata-Modern-Classic"

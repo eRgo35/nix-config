@@ -13,7 +13,7 @@
         ./modules/development.nix
         ./modules/fstrim.nix
         ./modules/gaming.nix
-        ./modules/greetd.nix
+        # ./modules/greetd.nix
         ./modules/gsettings.nix
         # ./modules/kde.nix
         # ./modules/lanzaboot.nix

@@ -126,7 +126,7 @@ flameshot &
 #hash dockd && dockd --daemon &
 
 # status bar
-bash bar.sh & disown
+bash $HOME/.config/bar.sh & disown
 
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
