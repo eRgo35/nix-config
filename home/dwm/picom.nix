@@ -4,6 +4,21 @@
   pkgs,
   ...
 }: {
+
+  home.file = {
+    # ".config/picom/picom.conf" = {
+    #   text = builtins.readFile ./picom.conf;
+    # };
+
+    ".config/picom/picom-animations.conf" = {
+      text = builtins.readFile ./picom-animations.conf;
+    };
+
+    ".config/picom/black_to_transparent.frag" = {
+      text = builtins.readFile ./black_to_transparent.frag;
+    };
+  };
+
   services.picom = {
     enable = true;
     package = pkgs.picom;
