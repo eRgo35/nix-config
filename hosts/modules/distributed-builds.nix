@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nix.distributedBuilds = true;
   nix.settings.builders-use-substitutes = true;
 
@@ -9,7 +8,7 @@
       sshUser = "remotebuild";
       sshKey = "/root/.ssh/remotebuild";
       system = "x86_64-linux";
-      supportedFeatures = [ "nixos-test" "big-parallel" "kvm" ];
+      supportedFeatures = ["nixos-test" "big-parallel" "kvm"];
     }
   ];
 }

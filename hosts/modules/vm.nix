@@ -1,7 +1,10 @@
-{ pkgs, username, ... }:
 {
-  users.users.${username}.extraGroups = [ "libvirtd" ];
-  boot.kernel.sysctl = { "vm.max_map_count" = 2147483642; };
+  pkgs,
+  username,
+  ...
+}: {
+  users.users.${username}.extraGroups = ["libvirtd"];
+  boot.kernel.sysctl = {"vm.max_map_count" = 2147483642;};
 
   # Install necessary packages
   environment.systemPackages = with pkgs; [
@@ -29,7 +32,7 @@
       qemu = {
         swtpm.enable = true;
         ovmf.enable = true;
-        ovmf.packages = [ pkgs.OVMFFull.fd ];
+        ovmf.packages = [pkgs.OVMFFull.fd];
       };
     };
   };

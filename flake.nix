@@ -2,7 +2,8 @@
   description = "Mike's Flake";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-24.11";
+    unstable.url = "nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nur.url = "github:nix-community/NUR";
     nix-alien.url = "github:thiagokokada/nix-alien";
@@ -56,37 +57,61 @@
     };
   };
 
-  outputs =
-    { nixpkgs, ... }@inputs:
-    {
+  outputs = {
+    self,
+    nixpkgs,
+    unstable,
+    home-manager,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
 
-      nixosConfigurations = {
-        zion = nixpkgs.lib.nixosSystem {
-          modules = [ ./hosts ];
-          specialArgs = {
-            inherit inputs;
-            username = "mike";
-            hostname = "zion";
-          };
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    # Your custom packages
+    # Accessible through 'nix build', 'nix shell', etc
+    # packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    # Formatter for your nix files, available through 'nix fmt'
+    # Other options beside 'alejandra' include 'nixpkgs-fmt'
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    # Your custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
+
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#hostname'
+    nixosConfigurations = {
+      zion = nixpkgs.lib.nixosSystem {
+        modules = [./hosts];
+        specialArgs = {
+          inherit inputs outputs;
+          username = "mike";
+          hostname = "zion";
         };
+      };
 
-        thor = nixpkgs.lib.nixosSystem {
-          modules = [ ./hosts ];
-          specialArgs = {
-            inherit inputs;
-            username = "mike";
-            hostname = "thor";
-          };
+      thor = nixpkgs.lib.nixosSystem {
+        modules = [./hosts];
+        specialArgs = {
+          inherit inputs outputs;
+          username = "mike";
+          hostname = "thor";
         };
+      };
 
-        server = nixpkgs.lib.nixosSystem {
-          modules = [ ./hosts ];
-          specialArgs = {
-            inherit inputs;
-            username = "mike";
-            hostname = "server";
-          };
+      server = nixpkgs.lib.nixosSystem {
+        modules = [./hosts];
+        specialArgs = {
+          inherit inputs outputs;
+          username = "mike";
+          hostname = "server";
         };
       };
     };
+  };
 }

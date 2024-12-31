@@ -1,10 +1,10 @@
-{ lib
-, pkgs
-, inputs
-, hostname
-, ...
-}:
 {
+  lib,
+  pkgs,
+  inputs,
+  hostname,
+  ...
+}: {
   # ------------------------------------------------
   # Needed Packages
   # ------------------------------------------------
@@ -542,7 +542,7 @@
       # Super Rat Binds
       bind = , mouse:277, exec, amixer set Master playback 2%+
       bind = , mouse:278, exec, amixer set Master playback 2%-
-      # bind = , mouse:279, exec, 
+      # bind = , mouse:279, exec,
       bind = , mouse:280, exec, amixer set Capture toggle
 
       # Move focus with mainMod + vim keys
@@ -644,7 +644,6 @@
       windowrulev2 = maxsize 1 1,class:^(xwaylandvideobridge)$
       windowrulev2 = noblur,class:^(xwaylandvideobridge)$
     '';
-
   };
 
   #################################
@@ -655,8 +654,8 @@
     settings = {
       ipc = "off";
       splash = false;
-      preload = [ "~/.files/home/wallpapers/blockwavemoon.png" ];
-      wallpaper = [ ",~/.files/home/wallpapers/blockwavemoon.png" ];
+      preload = ["~/.files/home/wallpapers/blockwavemoon.png"];
+      wallpaper = [",~/.files/home/wallpapers/blockwavemoon.png"];
     };
   };
 
@@ -673,79 +672,78 @@
       };
 
       listener =
-        if hostname == "zion" then
-          [
-            # {
-            #   timeout = 60;
-            #   on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
-            #   on-resume = "brightnessctl -rd asus::kbd_backlight";
-            # }
+        if hostname == "zion"
+        then [
+          # {
+          #   timeout = 60;
+          #   on-timeout = "brightnessctl -sd asus::kbd_backlight set 0";
+          #   on-resume = "brightnessctl -rd asus::kbd_backlight";
+          # }
 
-            # {
-            #   timeout = 80;
-            #   on-timeout = "brightnessctl -s set 0";
-            #   on-resume = "brightnessctl -r";
-            # }
+          # {
+          #   timeout = 80;
+          #   on-timeout = "brightnessctl -s set 0";
+          #   on-resume = "brightnessctl -r";
+          # }
 
-            # {
-            #   timeout = 100;
-            #   on-timeout = "hyprctl dispatch dpms off ";
-            #   on-resume = "hyprctl dispatch dpms on";
-            # }
+          # {
+          #   timeout = 100;
+          #   on-timeout = "hyprctl dispatch dpms off ";
+          #   on-resume = "hyprctl dispatch dpms on";
+          # }
 
-            # {
-            #   timeout = 150;
-            #   on-timeout = "systemctl suspend";
-            # }
-            {
-              timeout = 300; # 5min
-              on-timeout = "brightnessctl -s set 10"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
-              on-resume = "brightnessctl -r"; # monitor backlight restore.
-            }
+          # {
+          #   timeout = 150;
+          #   on-timeout = "systemctl suspend";
+          # }
+          {
+            timeout = 300; # 5min
+            on-timeout = "brightnessctl -s set 10"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
+            on-resume = "brightnessctl -r"; # monitor backlight restore.
+          }
 
-            {
-              timeout = 600; # 10min
-              on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
-            }
+          {
+            timeout = 600; # 10min
+            on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
+          }
 
-            # {
-            # timeout = 1800; # 30min
-            # on-timeout = "systemctl hibernate";
-            # on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed
-            # on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
-            # }
-          ]
-        else if hostname == "thor" then
-          [
-            {
-              timeout = 450;
-              on-timeout = "brightnessctl -s set 0";
-              on-resume = "brightnessctl -r";
-            }
+          # {
+          # timeout = 1800; # 30min
+          # on-timeout = "systemctl hibernate";
+          # on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed
+          # on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
+          # }
+        ]
+        else if hostname == "thor"
+        then [
+          {
+            timeout = 450;
+            on-timeout = "brightnessctl -s set 0";
+            on-resume = "brightnessctl -r";
+          }
 
-            {
-              timeout = 600;
-              on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
-            }
+          {
+            timeout = 600;
+            on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
+          }
 
-            {
-              timeout = 750;
-              on-timeout = "hyprctl dispatch dpms off ";
-              on-resume = "hyprctl dispatch dpms on";
-            }
+          {
+            timeout = 750;
+            on-timeout = "hyprctl dispatch dpms off ";
+            on-resume = "hyprctl dispatch dpms on";
+          }
 
-            {
-              timeout = 900;
-              on-timeout = "systemctl suspend";
-            }
+          {
+            timeout = 900;
+            on-timeout = "systemctl suspend";
+          }
 
-            {
-              timeout = 1500;
-              on-timeout = "systemctl hibernate";
-            }
-          ]
-        else
-          [ ];
+          {
+            timeout = 1500;
+            on-timeout = "systemctl hibernate";
+          }
+        ]
+        else [];
     };
   };
 
@@ -756,7 +754,6 @@
     enable = true;
 
     settings = lib.mkForce {
-
       general = {
         grace = 5;
         no_fade_in = true;

@@ -23,5 +23,4 @@
       push.gpgsign = "if-asked";
     };
   };
-
 }

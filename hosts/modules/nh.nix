@@ -1,5 +1,4 @@
-{ username, ... }:
-{
+{username, ...}: {
   programs.nh = {
     enable = true;
     flake = "/home/${username}/.files";

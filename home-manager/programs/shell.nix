@@ -1,10 +1,6 @@
-{ pkgs
-, ...
-}:
-let
+{pkgs, ...}: let
   cli = import ../configs/aliases.nix;
-in
-{
+in {
   programs = {
     zoxide.enable = true;
 

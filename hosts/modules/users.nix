@@ -1,6 +1,11 @@
-{ inputs, username, hostname, pkgs, ... }:
 {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+  inputs,
+  username,
+  hostname,
+  pkgs,
+  ...
+}: {
+  imports = [inputs.home-manager.nixosModules.home-manager];
 
   users.defaultUserShell = pkgs.zsh;
 
@@ -20,10 +25,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs username hostname; };
+    extraSpecialArgs = {inherit inputs username hostname;};
 
     users.${username} = {
-      imports = [ ../../home/home.nix ];
+      imports = [../../home-manager/home.nix];
       programs.home-manager.enable = true;
       home = {
         stateVersion = "24.05";

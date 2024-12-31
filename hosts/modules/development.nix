@@ -1,5 +1,9 @@
-{ inputs, pkgs, rust-overlay, ... }:
 {
+  inputs,
+  pkgs,
+  rust-overlay,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     # general
     docker

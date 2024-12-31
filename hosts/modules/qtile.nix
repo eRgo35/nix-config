@@ -1,13 +1,12 @@
 # Enable Qtile
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # --------------------------------------
   # Enable QTILE
   # --------------------------------------
   services.xserver.windowManager.qtile = {
     enable = true;
     configFile = /home/nel/dotfiles/qtile/config.py;
-    extraPackages = python3Packages: with python3Packages; [ qtile-extras ];
+    extraPackages = python3Packages: with python3Packages; [qtile-extras];
   };
 
   # --------------------------------------

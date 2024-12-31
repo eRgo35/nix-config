@@ -1,19 +1,17 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.helix = {
     enable = true;
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    # languages Configuration 
+    # languages Configuration
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     languages = {
       language = [
-
         {
           name = "nix";
           auto-format = true;
-          language-servers = [ "nixd" "nil" ];
+          language-servers = ["nixd" "nil"];
           formatter = {
             command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
             # command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
@@ -24,62 +22,61 @@
         {
           name = "bash";
           auto-format = true;
-          language-servers = [ "bash-language-server" ];
+          language-servers = ["bash-language-server"];
           formatter = {
             command = "${pkgs.shfmt}/bin/shfmt";
-            args = [ "-i" "2" "-ci" ];
+            args = ["-i" "2" "-ci"];
           };
         }
 
         {
           name = "python";
           auto-format = true;
-          language-servers = [ "pyright" ];
+          language-servers = ["pyright"];
           formatter = {
             command = "${pkgs.black}/bin/black";
-            args = [ "--quiet" "-" ];
+            args = ["--quiet" "-"];
           };
         }
 
         {
           name = "rust";
           auto-format = false;
-          file-types = [ "rs" ];
-          language-servers = [ "rust-analyzer" ];
-          formatter = { command = "${pkgs.rustfmt}/bin/rustfmt"; };
+          file-types = ["rs"];
+          language-servers = ["rust-analyzer"];
+          formatter = {command = "${pkgs.rustfmt}/bin/rustfmt";};
         }
 
         {
           name = "zig";
           auto-format = true;
-          language-servers = [ "zsl" ];
-          formatter = { command = "${pkgs.zig}/bin/zig"; };
+          language-servers = ["zsl"];
+          formatter = {command = "${pkgs.zig}/bin/zig";};
         }
 
         {
           name = "html";
           auto-format = true;
-          language-servers = [ "vscode-langservers-extracted" ];
+          language-servers = ["vscode-langservers-extracted"];
         }
 
         {
           name = "javascript";
           auto-format = true;
-          language-servers = [ "typescript-language-server" ];
+          language-servers = ["typescript-language-server"];
         }
       ];
 
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      # Language Server Protocol Configuration 
+      # Language Server Protocol Configuration
       # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       language-servers = {
-
-        nil = { command = "${pkgs.nixd}/bin/nixd"; };
+        nil = {command = "${pkgs.nixd}/bin/nixd";};
 
         rust-analyzer = {
           config = {
-            check = { command = "${pkgs.clippy}/bin/cargo-clippy"; };
+            check = {command = "${pkgs.clippy}/bin/cargo-clippy";};
             # cargo.features = "all";
             checkOnSave.command = "${pkgs.clippy}/bin/cargo-clippy";
             completion.autoimport.enable = true;
@@ -88,7 +85,7 @@
 
         typescript-language-server = {
           command = "${pkgs.nodePackages_latest.typescript-language-server}/bin/typescript-language-server";
-          args = [ "--stdio" ];
+          args = ["--stdio"];
         };
       };
     };

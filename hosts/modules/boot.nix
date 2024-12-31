@@ -1,6 +1,13 @@
-{ pkgs, hostname, inputs, ... }:
 {
-  imports = if hostname == "zion" then [ inputs.chaotic.nixosModules.default ] else [ ];
+  pkgs,
+  hostname,
+  inputs,
+  ...
+}: {
+  imports =
+    if hostname == "zion"
+    then [inputs.chaotic.nixosModules.default]
+    else [];
 
   boot = {
     tmp.cleanOnBoot = true;
@@ -16,9 +23,12 @@
     };
 
     kernelPackages =
-      if hostname == "zion" then pkgs.linuxPackages_cachyos #linuxPackages_zen #linuxPackages #linuxPackages_latest #linuxPackages_xanmod_latest
-      else if hostname == "thor" then pkgs.linuxPackages
-      else if hostname == "server" then pkgs.linuxPackages
+      if hostname == "zion"
+      then pkgs.linuxPackages_zen #linuxPackages_zen #linuxPackages #linuxPackages_latest #linuxPackages_xanmod_latest
+      else if hostname == "thor"
+      then pkgs.linuxPackages
+      else if hostname == "server"
+      then pkgs.linuxPackages
       else pkgs.linuxPackages_zen;
   };
 }

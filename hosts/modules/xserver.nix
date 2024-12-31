@@ -40,7 +40,6 @@
     dconf
   ];
 
-
   # X Server settings
   services.xserver = {
     enable = true;

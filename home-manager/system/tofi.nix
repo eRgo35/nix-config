@@ -2,7 +2,7 @@
   programs.tofi = {
     enable = true;
     settings = {
-      # font 
+      # font
       font-size = 12;
 
       # Window Style
@@ -30,7 +30,6 @@
       prompt-color = "#f38ba8";
       selection-color = "#f9e2af";
       background-color = "#1a1b26";
-
     };
   };
 }

@@ -4,7 +4,7 @@
     createHome = false;
     group = "remotebuild";
 
-    openssh.authorizedKeys.keyFiles = [ ../keys/remotebuild.pub ];
+    openssh.authorizedKeys.keyFiles = [../keys/remotebuild.pub];
   };
 
   users.groups.remotebuild = {};
@@ -12,7 +12,7 @@
   nix = {
     nrBuildUsers = 64;
     settings = {
-      trusted-users = [ "remotebuild" ];
+      trusted-users = ["remotebuild"];
 
       min-free = 10 * 1024 * 1024;
       max-free = 200 * 1024 * 1024;
@@ -26,6 +26,5 @@
     MemoryAccounting = true;
     MemoryMax = "90%";
     OOMScoreAdjust = 500;
-  }; 
+  };
 }
-

@@ -1,16 +1,16 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscode.fhsWithPackages (
-      ps: with ps; [
-        rustup
-        zlib
-        openssl.dev
-        pkg-config
-        # nixfmt-rfc-style
-        python3
-      ]
+      ps:
+        with ps; [
+          rustup
+          zlib
+          openssl.dev
+          pkg-config
+          # nixfmt-rfc-style
+          python3
+        ]
     );
 
     extensions = with pkgs.vscode-extensions; [
@@ -27,7 +27,6 @@
     ];
 
     userSettings = {
-
       "editor.fontSize" = 16;
       "editor.fontFamily" = "FiraCode Nerd Font";
       "explorer.confirmDelete" = false;
@@ -45,7 +44,7 @@
       "nix.serverSettings" = {
         "nixd" = {
           "formatting" = {
-            "command" = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
+            "command" = ["${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt"];
           };
           "nixpkgs" = {
             "expr" = "import <nixpkgs> { }";
@@ -70,7 +69,6 @@
       "workbench.colorTheme" = "Rosé Pine";
       "workbench.preferredDarkColorTheme" = "Rosé Pine";
       "workbench.preferredHighContrastColorTheme" = "Rosé Pine";
-
     };
   };
 }

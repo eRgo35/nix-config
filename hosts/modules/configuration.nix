@@ -1,5 +1,9 @@
-{ hostname, inputs, pkgs, ... }:
 {
+  hostname,
+  inputs,
+  pkgs,
+  ...
+}: {
   time.timeZone = "Europe/Warsaw";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -37,9 +41,9 @@
   };
 
   environment = {
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    # sessionVariables.NIXOS_OZONE_WL = "1";
 
-    shells = with pkgs; [ bash zsh ];
+    shells = with pkgs; [bash zsh];
   };
 
   system = {
@@ -47,6 +51,9 @@
     switch = {
       enable = false;
       enableNg = true;
+    };
+    autoUpgrade = {
+      enable = true;
     };
   };
 
@@ -69,16 +76,16 @@
   nix = {
     daemonCPUSchedPolicy = "batch";
     channel.enable = false;
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     optimise = {
       automatic = true;
-      dates = [ "daily" ];
+      dates = ["daily"];
     };
 
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
 
       substituters = [
         "https://cache.nixos.org"

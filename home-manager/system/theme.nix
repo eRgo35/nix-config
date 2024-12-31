@@ -3,11 +3,8 @@
   pkgs,
   inputs,
   ...
-}:
-let
-
-in
-{
+}: let
+in {
   qt = {
     enable = true;
     platformTheme.name = "qtct";

@@ -1,9 +1,9 @@
 {
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [22];
 
   services.openssh = {
     enable = true;
-    ports = [ 22 ];
+    ports = [22];
 
     settings = {
       PermitRootLogin = "no";

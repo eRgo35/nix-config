@@ -40,7 +40,6 @@
     };
 
     settings = {
-
       content = {
         autoplay = false;
         javascript.clipboard = "access";
