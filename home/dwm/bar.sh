@@ -1,181 +1,85 @@
 #!/usr/bin/env bash
 
-function lighten_color() {
-  offset=20
+# Rosé Pine color palette
+BASE=#191724
+SURFACE=#1f1d2e
+OVERLAY=#26233a
 
-  hex_color=$1
-  hex_color=${hex_color:1}
+MUTED=#6e6a86
+SUBTLE=#908caa
+TEXT=#e0def4
 
-  red=${hex_color:0:2}
-  green=${hex_color:2:2}
-  blue=${hex_color:4:2}
+LOVE=#eb6f92
+GOLD=#f6c177
+ROSE=#ebbcba
+PINE=#31748f
+FOAM=#9ccfd8
+IRIS=#c4a7e7
 
-  red_dec=$(printf "%d" 0x$red)
-  green_dec=$(printf "%d" 0x$green)
-  blue_dec=$(printf "%d" 0x$blue)
+HIGHLIGHT_LOW=#21202e
+HIGHLIGHT_MED=#403d52
+HIGHLIGHT_HIGH=#524f67
 
-  if [[ $red_dec -lt 128 ]]; then
-    red_dec_l=$((red_dec+offset))
-    green_dec_l=$((green_dec+offset))
-    blue_dec_l=$((blue_dec+offset))
-  else
-    red_dec_l=$((red_dec-offset))
-    green_dec_l=$((green_dec-offset))
-    blue_dec_l=$((blue_dec-offset))
-  fi
-
-  red=$(printf "%02X" $red_dec_l)
-  green=$(printf "%02X" $green_dec_l)
-  blue=$(printf "%02X" $blue_dec_l)
-
-  echo "#$red$green$blue"
+# Function to get CPU usage
+get_cpu_usage() {
+    cpu_usage=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f%%\n", usage}')
+    echo "^c$FOAM^CPU: $cpu_usage"
 }
 
-# ^c$var^ = fg color
-# ^b$var^ = bg color
+# Function to get memory usage
+get_memory_usage() {
+    # Extract used and total memory in kilobytes
+    mem_info=$(free -k | awk '/^Mem:/ {print $3, $2}')
+    used_mem=$(echo $mem_info | awk '{print $1}')
+    total_mem=$(echo $mem_info | awk '{print $2}')
 
-interval=0
+    # Calculate memory usage percentage
+    mem_percent=$(awk "BEGIN {printf \"%.0f%%\", ($used_mem / $total_mem) * 100}")
 
-# load colors
-# . ~/.config/bar_themes/onedark
-
-# colors
-
-rosewater=#f4dbd6
-flamingo=#f0c6c6
-pink=#f5bde6
-mauve=#c6a0f6
-red=#fb4934
-maroon=#ee99a0
-peach=#f5a97f
-yellow=#eed49f
-green=#b8bb26
-teal=#8bd5ca
-sky=#91d7e3
-sapphire=#7dc4e4
-blue=#8aadf4
-lavender=#b7bdf8
-text=#cad3f5
-subtext1=#b8c0e0
-subtext0=#a5adcb
-overlay2=#939ab7
-overlay1=#8087a2
-overlay0=#6e738d
-surface2=#5b6078
-surface1=#494d64
-surface0=#363a4f
-base=#24273a
-mantle=#1e2030
-crust=#181926
-
-# Special
-background=#282828
-foreground=#ebdbb2
-cursor=#ebdbb2
-
-# Colors
-color0=#05090e
-color1=#425965
-color2=#016b86
-color3=#1f7284
-color4=#48717a
-color5=#358292
-color6=#79796b
-color7=#828486
-color8=#43464a
-color9=#597787
-color10=#028FB3
-color11=#2A99B1
-color12=#6097A3
-color13=#47AEC3
-color14=#A2A28F
-color15=#c0c1c2
-
-background0=$(lighten_color $background)
-background1=$(lighten_color $background0)
-background2=$(lighten_color $background1)
-
-pulse () {
-  VOL=$(pamixer --get-volume)
-  STATE=$(pamixer --get-mute)
-  
-  printf "%s" "$SEP1"
-  if [ "$STATE" = "true" ] || [ "$VOL" -eq 0 ]; then
-      printf "AMUT%%"
-  elif [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
-      printf "A%s%%" "$VOL"
-  elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
-      printf "A%s%%" "$VOL"
-  else
-      printf "A%s%%" "$VOL"
-  fi
-  printf "%s\n" "$SEP2"
+    # Output the result with color
+    echo "^c$IRIS^MEM: $mem_percent"
 }
 
-cpu() {
-  cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
+# Function to get volume level
+get_volume() {
+    # Get the default sink (output device) and its volume/mute status
+    default_sink=$(pactl get-default-sink)
+    volume=$(pactl get-sink-volume $default_sink | grep -o '[0-9]*%' | head -1)
+    is_muted=$(pactl get-sink-mute $default_sink | grep -o 'yes\|no')
 
-  printf "^c$background^ ^b$yellow^ 󰇄 "
-  printf "^c$background^ ^b$yellow^$cpu_val"
+    # Replace "yes" with "MUT" and "no" with the volume level
+    if [ "$is_muted" = "yes" ]; then
+        volume="MUT"
+    fi
+
+    # Get the default source (input device) and its volume/mute status
+    default_source=$(pactl get-default-source)
+    mic_level=$(pactl get-source-volume $default_source | grep -o '[0-9]*%' | head -1)
+    is_mic_muted=$(pactl get-source-mute $default_source | grep -o 'yes\|no')
+
+    # Replace "yes" with "MUT" and "no" with the microphone level
+    if [ "$is_mic_muted" = "yes" ]; then
+        mic_level="MUT"
+    fi
+
+    # Output the results with colors
+    echo "^c$PINE^VOL: $volume MIC: $mic_level"
 }
 
-battery() {
-  capacity_0="$(cat /sys/class/power_supply/BAT0/capacity)"
-  capacity_1="$(cat /sys/class/power_supply/BAT1/capacity)"
-
-  capacity="$capacity_0+$capacity_1"
-  # capacity=$(((capacity_0 + capacity_1) / 2))
-
-  printf " B$capacity%% "
+# Function to get date and time in American 12-hour format
+get_datetime() {
+    datetime=$(date +"%a %d %b %I:%M %p")
+    echo "^c$GOLD^$datetime"
 }
 
-brightness() {
-  value=$(cat /sys/class/backlight/*/brightness)
-  percentage=$(echo "scale=2; $value / 8.54" | bc)
-  printf "L%.0f%%" "$percentage"
-}
-
-mem() {
-  printf "^c$background^^b$green^  "
-  printf "^c$background^^b$green^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
-}
-
-wlan() {
-	case "$(cat /sys/class/net/wl*/operstate 2>/dev/null)" in
-	up) printf "^c$background^ ^b$blue^ 󰤨 ^c$background^ ^b$blue^Connected" ;;
-	down) printf "^c$background^ ^b$blue^ 󰤭 ^c$background^ ^b$blue^Disconnected" ;;
-	esac
-}
-
-clock() {
-	printf " $(date '+%I:%M %P') "
-}
-
-today() {
-	printf " $(date '+%b %e') "
-}
-
-net() {
-  if nc -zw1 c2yz.com 443; then
-    printf "^c$background^^b$green^  i  "
-  else
-    printf "^c$background^^b$red^  !  "
-  fi
-}
-
-
+# Main loop to update xsetroot
 while true; do
+    # Combine all status components
+    status="$(get_volume) ^c$TEXT^| $(get_cpu_usage) ^c$TEXT^| $(get_memory_usage) ^c$TEXT^| $(get_datetime)"
 
-  # [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] && updates=$(pkg_updates)
-  # interval=$((interval + 1))
+    # Update the root window name with a darker background
+    xsetroot -name "$status"
 
-  # sleep 1 && xsetroot -name "$updates $(battery) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-  # sleep 1 && xsetroot -name "$(battery) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-  # if hash dockd 2>/dev/null; then
-  #   sleep 1 && xsetroot -name "^c$foreground^^b$background1^  $(brightness)  ^b$background0^  $(battery)  $(net)^c$foreground^^b$background0^  $(today)  ^b$background1^  $(clock)  ^b$background2^  $(pulse)  "
-  # else
-  sleep 1 && xsetroot -name "^c$foreground^$(net)^c$foreground^^b$background0^  $(today)  ^b$background1^  $(clock)  ^b$background2^  $(pulse)  "
-  xsetroot -cursor_name left_ptr
-  # fi
-  
+    # Sleep for 250 milis before updating
+    sleep 0.25
 done
