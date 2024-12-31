@@ -5,23 +5,27 @@
   ...
 }: {
 
-  home.file = {
-    # ".config/picom/picom.conf" = {
-    #   text = builtins.readFile ./picom.conf;
-    # };
+  # home.file = {
+  #   ".config/picom/picom.conf" = {
+  #     text = builtins.readFile ./picom.conf;
+  #   };
+  #
+  #   ".config/picom/picom-animations.conf" = {
+  #     text = builtins.readFile ./picom-animations.conf;
+  #   };
+  #
+  #   ".config/picom/black_to_transparent.frag" = {
+  #     text = builtins.readFile ./black_to_transparent.frag;
+  #   };
+  # };
 
-    ".config/picom/picom-animations.conf" = {
-      text = builtins.readFile ./picom-animations.conf;
-    };
+  home.packages = with pkgs; [
+    picom
+  ];
 
-    ".config/picom/black_to_transparent.frag" = {
-      text = builtins.readFile ./black_to_transparent.frag;
-    };
-  };
-
-  services.picom = {
-    enable = true;
-    package = pkgs.picom;
+  # services.picom = {
+  #   enable = true;
+  #   package = pkgs.picom;
   #   backend = "glx";
   #
   #   shadow = true;
@@ -110,5 +114,5 @@
   #       #"nordify.glsl:class_g = 'miru'"
   #     ];
   #   };
-  };
+  # };
 }
