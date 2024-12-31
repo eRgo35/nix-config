@@ -50,5 +50,13 @@
     tree = "eza -T";
 
     startupctl = "systemctl list-unit-files --type=service | grep enabled";
+
+    ga = "git add .";
+    gap = "git add -p";
+    gc = "git commit -m";
+    gu = "git push";
+    gp = "git pull";
+    gs = "git status";
+    gd = "git diff";
   };
 }
