@@ -1,7 +1,9 @@
 {
-  hostname,
+  lib,
   inputs,
+  outputs,
   pkgs,
+  config,
   ...
 }: {
   time.timeZone = "Europe/Warsaw";
@@ -33,10 +35,10 @@
 
     libinput = {
       enable = true;
-      mouse = {
-        accelProfile = "flat";
-        accelSpeed = "0.0";
-      };
+      # mouse = {
+      #   accelProfile = "flat";
+      #   accelSpeed = "0.0";
+      # };
     };
   };
 
@@ -58,6 +60,24 @@
   };
 
   nixpkgs = {
+    # You can add overlays here
+    overlays = [
+      # Add overlays your own flake exports (from overlays and pkgs dir):
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
+
+      # You can also add overlays exported from other flakes:
+      # neovim-nightly-overlay.overlays.default
+
+      # Or define it inline, for example:
+      # (final: prev: {
+      #   hi = final.hello.overrideAttrs (oldAttrs: {
+      #     patches = [ ./change-hello-to-hi.patch ];
+      #   });
+      # })
+    ];
+
     config = {
       # I'm sorry Richard Stallman
       allowUnfree = true;
@@ -73,19 +93,27 @@
     nixos.enable = true;
   };
 
-  nix = {
+  nix = let
+    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  in {
     daemonCPUSchedPolicy = "batch";
     channel.enable = false;
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    # nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     optimise = {
       automatic = true;
       dates = ["daily"];
     };
 
+    # Opinionated: make flake registry and nix path match flake inputs
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
+      flake-registry = "";
+      nix-path = config.nix.nixPath;
 
       substituters = [
         "https://cache.nixos.org"

@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
-    unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nur.url = "github:nix-community/NUR";
     nix-alien.url = "github:thiagokokada/nix-alien";
@@ -42,7 +42,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -60,7 +60,6 @@
   outputs = {
     self,
     nixpkgs,
-    unstable,
     home-manager,
     ...
   } @ inputs: let
@@ -75,42 +74,76 @@
   in {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
-    # packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     # Formatter for your nix files, available through 'nix fmt'
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     # Your custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
+    # Reusable nixos modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    nixosModules = import ./modules/nixos;
+    # Reusable home-manager modules you might want to export
+    # These are usually stuff you would upstream into home-manager
+    homeManagerModules = import ./modules/home-manager;
 
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#hostname'
+    # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       zion = nixpkgs.lib.nixosSystem {
-        modules = [./hosts];
-        specialArgs = {
-          inherit inputs outputs;
-          username = "mike";
-          hostname = "zion";
-        };
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./hosts/zion/configuration.nix
+        ];
       };
 
       thor = nixpkgs.lib.nixosSystem {
-        modules = [./hosts];
-        specialArgs = {
-          inherit inputs outputs;
-          username = "mike";
-          hostname = "thor";
-        };
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./hosts/thor/configuration.nix
+        ];
       };
 
       server = nixpkgs.lib.nixosSystem {
-        modules = [./hosts];
-        specialArgs = {
-          inherit inputs outputs;
-          username = "mike";
-          hostname = "server";
-        };
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main nixos configuration file <
+          ./hosts/server/configuration.nix
+        ];
+      };
+    };
+
+    # Standalone home-manager configuration entrypoint
+    # Available through 'home-manager --flake .#your-username@your-hostname'
+    homeConfigurations = {
+      "mike@zion" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home-manager/home.nix
+        ];
+      };
+
+      "mike@thor" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home-manager/home.nix
+        ];
+      };
+
+      "mike@server" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home-manager/home.nix
+        ];
       };
     };
   };

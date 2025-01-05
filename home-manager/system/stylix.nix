@@ -66,19 +66,19 @@
 
       monospace = {
         # package = pkgs.nerd-fonts.droid-sans-mono;
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
         name = "DroidSansMono";
       };
 
       sansSerif = {
         # package = pkgs.nerd-fonts.droid-sans-mono;
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
         name = "DroidSansMono";
       };
 
       serif = {
         # package = pkgs.nerd-fonts.droid-sans-mono;
-        package = pkgs.nerdfonts.override { fonts = [ "DroidSansMono" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["DroidSansMono"];};
         name = "DroidSansMono";
       };
     };

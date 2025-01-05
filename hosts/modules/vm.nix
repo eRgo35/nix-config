@@ -1,9 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
-  users.users.${username}.extraGroups = ["libvirtd"];
+{pkgs, ...}: {
   boot.kernel.sysctl = {"vm.max_map_count" = 2147483642;};
 
   # Install necessary packages

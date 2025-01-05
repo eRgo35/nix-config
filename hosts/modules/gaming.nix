@@ -1,9 +1,5 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
-  users.users.${username}.packages = with pkgs; [heroic];
+{pkgs, ...}: {
+  users.users.mike.packages = with pkgs; [heroic];
   hardware.steam-hardware.enable = true;
 
   programs = {

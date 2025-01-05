@@ -4,7 +4,7 @@
   rust-overlay,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs.unstable; [
     # general
     docker
     docker-compose
@@ -33,6 +33,7 @@
     # # python
     # python311
     # python311Packages.pip
+    uv
     # python311Packages.venvShellHook
 
     # cpp
