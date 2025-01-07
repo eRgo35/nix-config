@@ -22,8 +22,10 @@ HIGHLIGHT_HIGH=#524f67
 
 # Function to get CPU usage
 get_cpu_usage() {
-    cpu_usage=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f%%\n", usage}')
-    echo "^c$FOAM^CPU: $cpu_usage"
+    cpu_usage=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print int(($2+$4-u1) * 100 / (t-t1)); }' \
+    <(grep 'cpu ' /proc/stat) <(sleep 1; grep 'cpu ' /proc/stat))
+    
+    echo "^c$FOAM^CPU: $cpu_usage%"
 }
 
 # Function to get memory usage
