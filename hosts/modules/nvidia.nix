@@ -7,8 +7,8 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   boot = {
-    kernelModules = ["nvidia-uvm"];
-    kernelParams = ["nvidia-drm.fbdev=1"];
+    kernelModules = ["nvidia" "nvidia-uvm"];
+    kernelParams = ["nvidia-drm.fbdev=1" "nvidia-drm.modeset=1"];
   };
 
   hardware = {
