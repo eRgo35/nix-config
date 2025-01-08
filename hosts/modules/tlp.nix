@@ -1,6 +1,5 @@
 {
   config,
-  hostname,
   ...
 }: {
   boot = {
@@ -12,15 +11,9 @@
     enable = true;
 
     settings = {
-      TLP_DEFAULT_MODE =
-        if hostname == "laptop"
-        then "BAT"
-        else "AC";
+      TLP_DEFAULT_MODE = "BAT";
 
-      TLP_PERSISTENT_DEFAULT =
-        if hostname == "laptop"
-        then 0
-        else 1;
+      TLP_PERSISTENT_DEFAULT = 0;
 
       CPU_BOOST_ON_AC = 1;
       CPU_BOOST_ON_BAT = 0;

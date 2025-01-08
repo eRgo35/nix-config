@@ -29,12 +29,12 @@
     ../modules/ananicy.nix
     ../modules/bluetooth.nix
     ../modules/boot.nix
-    ../modules/configuration.nix
+    ../modules/common.nix
     ../modules/development.nix
     ../modules/distributed-builds.nix
     ../modules/fstrim.nix
     ../modules/gaming.nix
-    ../modules/greetd.nix
+    # ../modules/greetd.nix
     ../modules/gsettings.nix
     # ../modules/kde.nix
     # ../modules/lanzaboot.nix
@@ -50,6 +50,7 @@
     ../modules/tlp.nix
     ../modules/users.nix
     ../modules/vm.nix
+    ../modules/xserver.nix
   ];
 
   networking.hostName = "thor";
