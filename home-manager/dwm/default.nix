@@ -33,6 +33,7 @@
     xorg.xinit
     xorg.xinput
     brightnessctl
+    xautolock
     xclip
     # gnome.gnome-keyring
     feh

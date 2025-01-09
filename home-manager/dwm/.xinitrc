@@ -68,10 +68,27 @@ setxkbmap pl &
 # xset s on &
 # xset -dpms &
 # xset s 900 &
-xset +dpms &
-xset dpms 1200 1800 2100 &
-xset s on &
-xset s 900 &
+# Powersaving options
+xset +dpms  # Enable DPMS
+xset dpms 300 600 900  # Set DPMS timeouts (standby, suspend, off) in seconds
+
+# Screen blanking
+xset s on  # Enable screen blanking
+xset s 600  # Set screen blanking timeout to 10 minutes (600 seconds)
+
+# Host-specific rules
+if [ "$(hostname)" = "zion" ]; then
+    # Zion rules
+    xautolock -time 5 -locker "brightnessctl -s set 10" &  # Set brightness to 10% after 5 minutes
+    xautolock -time 10 -locker "loginctl lock-session" &   # Lock screen after 10 minutes
+elif [ "$(hostname)" = "thor" ]; then
+    # Thor rules
+    xautolock -time 7.5 -locker "brightnessctl -s set 0" &  # Set brightness to 0% after 7.5 minutes
+    xautolock -time 10 -locker "loginctl lock-session" &    # Lock screen after 10 minutes
+    xautolock -time 12.5 -locker "xset dpms force off" &    # Turn off display after 12.5 minutes
+    xautolock -time 15 -locker "systemctl suspend" &        # Suspend after 15 minutes
+    xautolock -time 25 -locker "systemctl hibernate" &      # Hibernate after 25 minutes
+fi
 
 # auths
 # /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
