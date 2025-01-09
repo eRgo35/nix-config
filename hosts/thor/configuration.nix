@@ -48,7 +48,7 @@
     # ../modules/remote-builder.nix
     ../modules/security.nix
     ../modules/ssh.nix
-#  ../modules/steam.nix
+    #  ../modules/steam.nix
     ../modules/tlp.nix
     ../modules/users.nix
     ../modules/vm.nix
