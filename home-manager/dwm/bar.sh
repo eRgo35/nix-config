@@ -68,16 +68,65 @@ get_volume() {
     echo "^c$PINE^VOL: $volume MIC: $mic_level"
 }
 
+# Function to get brightness percentage
+get_brightness() {
+    # Get the current brightness level (adjust path if needed)
+    brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
+    max_brightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+    
+    # Calculate brightness percentage
+    brightness_percent=$(awk "BEGIN {printf \"%.0f%%\", ($brightness / $max_brightness) * 100}")
+    
+    # Output the result with color
+    echo "^c$ROSE^BRT: $brightness_percent"
+}
+
+# Function to get weighted average battery level
+get_battery_level() {
+    # Get battery levels (adjust paths if needed)
+    battery0_level=$(cat /sys/class/power_supply/BAT0/capacity)
+    battery1_level=$(cat /sys/class/power_supply/BAT1/capacity)
+
+    battery0_energy_full=$(cat /sys/class/power_supply/BAT0/energy_full)
+    battery1_energy_full=$(cat /sys/class/power_supply/BAT1/energy_full)
+    
+    # Calculate weights based on energy capacity 
+    weight0=$(awk "BEGIN {printf \"%.2f\", $battery0_energy_full / ($battery0_energy_full + $battery1_energy_full)}")
+    weight1=$(awk "BEGIN {printf \"%.2f\", $battery1_energy_full / ($battery0_energy_full + $battery1_energy_full)}")
+    
+    # Calculate weighted average
+    weighted_avg=$(awk "BEGIN {printf \"%.0f%%\", ($battery0_level * $weight0 + $battery1_level * $weight1)}")
+    
+    # Output the result with color
+    echo "^c$LOVE^BAT: $weighted_avg"
+}
+
 # Function to get date and time in American 12-hour format
 get_datetime() {
     datetime=$(date +"%a %d %b %I:%M %p")
     echo "^c$GOLD^$datetime"
 }
 
+# Function to detect if the system is a laptop
+is_laptop() {
+    # Check if battery and brightness files exist
+    if [ -d /sys/class/power_supply/BAT0 ] && [ -d /sys/class/backlight/intel_backlight ]; then
+        return 0  # Laptop
+    else
+        return 1  # PC
+    fi
+}
+
 # Main loop to update xsetroot
 while true; do
     # Combine all status components
-    status="$(get_volume) ^c$TEXT^| $(get_cpu_usage) ^c$TEXT^| $(get_memory_usage) ^c$TEXT^| $(get_datetime)"
+    if is_laptop; then
+        # Include battery and brightness for laptops
+        status="$(get_volume) ^c$TEXT^| $(get_cpu_usage) ^c$TEXT^| $(get_memory_usage) ^c$TEXT^| $(get_brightness) ^c$TEXT^| $(get_battery_level) ^c$TEXT^| $(get_datetime)"
+    else
+        # Exclude battery and brightness for PCs
+        status="$(get_volume) ^c$TEXT^| $(get_cpu_usage) ^c$TEXT^| $(get_memory_usage) ^c$TEXT^| $(get_datetime)"
+    fi
 
     # Update the root window name with a darker background
     xsetroot -name "$status"
