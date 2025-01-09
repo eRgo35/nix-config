@@ -31,6 +31,7 @@
     ../modules/boot.nix
     ../modules/common.nix
     ../modules/development.nix
+    # ../modules/distributed-builds.nix
     ../modules/fstrim.nix
     ../modules/gaming.nix
     # ../modules/greetd.nix
@@ -48,6 +49,7 @@
     ../modules/security.nix
     ../modules/ssh.nix
     ../modules/steam.nix
+#   ../modules/tlp.nix
     ../modules/users.nix
     ../modules/vm.nix
     ../modules/xserver.nix
