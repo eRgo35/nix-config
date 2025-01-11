@@ -68,26 +68,77 @@ setxkbmap pl &
 # xset s on &
 # xset -dpms &
 # xset s 900 &
-# Powersaving options
-xset +dpms  # Enable DPMS
-xset dpms 300 600 900  # Set DPMS timeouts (standby, suspend, off) in seconds
-
-# Screen blanking
-xset s on  # Enable screen blanking
-xset s 600  # Set screen blanking timeout to 10 minutes (600 seconds)
-
 # Host-specific rules
 if [ "$(hostname)" = "zion" ]; then
-    # Zion rules
-    xautolock -time 5 -locker "brightnessctl -s set 10" &  # Set brightness to 10% after 5 minutes
-    xautolock -time 10 -locker "loginctl lock-session" &   # Lock screen after 10 minutes
+    # Zion rules (Desktop)
+    # Enable DPMS and set longer timeouts for desktop
+    # xset +dpms
+    # xset dpms 1200 2400 3600  # Standby: 20 min, Suspend: 40 min, Off: 60 min
+
+    # Enable screen blanking and set timeout to 20 minutes
+    # xset s on
+    # xset s 1200
+
+    # Desktop-specific xidlehook rules
+    xidlehook \
+        --not-when-fullscreen \
+        --not-when-audio \
+        --timer 600 \
+        "xset dpms force standby" \
+        "" &  # Enter standby after 10 minutes
+
+    xidlehook \
+        --not-when-fullscreen \
+        --not-when-audio \
+        --timer 1800 \
+        "xset dpms force suspend" \
+        "" &  # Enter suspend after 30 minutes
+
+    xidlehook \
+        --not-when-fullscreen \
+        --not-when-audio \
+        --timer 3600 \
+        "xset dpms force off" \
+        "" &  # Turn off display after 60 minutes
+
 elif [ "$(hostname)" = "thor" ]; then
-    # Thor rules
-    xautolock -time 7.5 -locker "brightnessctl -s set 0" &  # Set brightness to 0% after 7.5 minutes
-    xautolock -time 10 -locker "loginctl lock-session" &    # Lock screen after 10 minutes
-    xautolock -time 12.5 -locker "xset dpms force off" &    # Turn off display after 12.5 minutes
-    xautolock -time 15 -locker "systemctl suspend" &        # Suspend after 15 minutes
-    xautolock -time 25 -locker "systemctl hibernate" &      # Hibernate after 25 minutes
+    # Thor rules (Laptop)
+    # Enable DPMS and set shorter timeouts for laptop
+    # xset +dpms
+    # xset dpms 300 600 900  # Standby: 5 min, Suspend: 10 min, Off: 15 min
+
+    # Enable screen blanking and set timeout to 10 minutes
+    # xset s on
+    # xset s 600
+
+    # Laptop-specific xidlehook rules
+    xidlehook \
+        --not-when-fullscreen \
+        --not-when-audio \
+        --timer 450 \
+        "brightnessctl -s set 5%" \
+        "brightnessctl -s set 100%" &  # Dim screen after 7.5 minutes
+
+    xidlehook \
+        --not-when-fullscreen \
+        --not-when-audio \
+        --timer 600 \
+        "loginctl lock-session" \
+        "" &  # Lock screen after 10 minutes
+
+    xidlehook \
+        --not-when-fullscreen \
+        --not-when-audio \
+        --timer 750 \
+        "xset dpms force standby" \
+        "" &  # Turn off display after 12.5 minutes
+
+    xidlehook \
+        --not-when-fullscreen \
+        --not-when-audio \
+        --timer 900 \
+        "systemctl suspend" \
+        "" &  # Suspend after 15 minutes
 fi
 
 # auths

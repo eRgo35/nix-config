@@ -65,6 +65,7 @@
     virt-manager
     xfce.thunar
     dconf
+    xidlehook
   ];
 
   home.file = {
