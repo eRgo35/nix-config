@@ -79,27 +79,12 @@ if [ "$(hostname)" = "zion" ]; then
     # xset s on
     # xset s 1200
 
-    # Desktop-specific xidlehook rules
     xidlehook \
         --not-when-fullscreen \
         --not-when-audio \
-        --timer 600 \
-        "xset dpms force standby" \
-        "" &  # Enter standby after 10 minutes
-
-    xidlehook \
-        --not-when-fullscreen \
-        --not-when-audio \
-        --timer 1800 \
-        "xset dpms force suspend" \
-        "" &  # Enter suspend after 30 minutes
-
-    xidlehook \
-        --not-when-fullscreen \
-        --not-when-audio \
-        --timer 3600 \
-        "xset dpms force off" \
-        "" &  # Turn off display after 60 minutes
+        --timer 600 "xset dpms force standby" "" \
+        --timer 1800 "xset dpms force suspend" "" \
+        --timer 3600 "xset dpms force off" "" &
 
 elif [ "$(hostname)" = "thor" ]; then
     # Thor rules (Laptop)
@@ -115,30 +100,10 @@ elif [ "$(hostname)" = "thor" ]; then
     xidlehook \
         --not-when-fullscreen \
         --not-when-audio \
-        --timer 450 \
-        "brightnessctl -s set 5%" \
-        "brightnessctl -s set 100%" &  # Dim screen after 7.5 minutes
-
-    xidlehook \
-        --not-when-fullscreen \
-        --not-when-audio \
-        --timer 600 \
-        "loginctl lock-session" \
-        "" &  # Lock screen after 10 minutes
-
-    xidlehook \
-        --not-when-fullscreen \
-        --not-when-audio \
-        --timer 750 \
-        "xset dpms force standby" \
-        "" &  # Turn off display after 12.5 minutes
-
-    xidlehook \
-        --not-when-fullscreen \
-        --not-when-audio \
-        --timer 900 \
-        "systemctl suspend" \
-        "" &  # Suspend after 15 minutes
+        --timer 450 "brightnessctl -s set 5%" "brightnessctl -s set 100%" \
+        --timer 600 "loginctl lock-session" "" \
+        --timer 750 "xset dpms force standby" "" \
+        --timer 900 "systemctl suspend" "" &
 fi
 
 # auths
