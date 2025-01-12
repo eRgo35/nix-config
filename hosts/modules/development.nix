@@ -62,9 +62,17 @@
     cachix
     lorri
     niv
+    nixd
     nixfmt-classic
     statix
     vulnix
     haskellPackages.dhall-nix
+
+    # java
+    jdk
+    jdk8
+    jdk17
+    maven
+    gradle
   ];
 }
