@@ -39,8 +39,8 @@
     # ./configs/keys.nix
 
     ./system/dunst.nix
-    ./system/hypr.nix
-    ./system/hyprland.nix
+    # ./system/hypr.nix
+    # ./system/hyprland.nix
     ./system/rofi.nix
     ./system/stylix.nix
     ./system/theme.nix

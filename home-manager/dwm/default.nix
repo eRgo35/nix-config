@@ -33,6 +33,8 @@
     xorg.xinit
     xorg.xinput
     brightnessctl
+    playerctl
+    qt6ct
     xautolock
     xclip
     # gnome.gnome-keyring
