@@ -5,7 +5,7 @@
 }: {
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
-
+  
   home.packages = with pkgs; [
     # > graphics < #
     tuxpaint
@@ -41,6 +41,7 @@
     protonvpn-cli_2
     python3
     pwvucontrol
+    unstable.archivebox
 
     # > media < #
     spotify
