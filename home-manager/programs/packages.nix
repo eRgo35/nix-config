@@ -41,7 +41,6 @@
     protonvpn-cli_2
     python3
     pwvucontrol
-    unstable.archivebox
 
     # > media < #
     spotify
