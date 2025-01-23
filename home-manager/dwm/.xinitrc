@@ -80,6 +80,7 @@ if [ "$(hostname)" = "zion" ]; then
     # xset s 1200
 
     xidlehook \
+        --socket /tmp/xidlehook.sock \
         --not-when-fullscreen \
         --not-when-audio \
         --timer 600 "xset dpms force standby" "" \
@@ -98,6 +99,7 @@ elif [ "$(hostname)" = "thor" ]; then
 
     # Laptop-specific xidlehook rules
     xidlehook \
+        --socket /tmp/xidlehook.sock
         --not-when-fullscreen \
         --not-when-audio \
         --timer 450 "brightnessctl -s set 5%" "brightnessctl -s set 100%" \
