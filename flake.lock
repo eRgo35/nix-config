@@ -2035,11 +2035,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1737658572,
-        "narHash": "sha256-E8d9RjIRBa9GeRq4T86FQ1r6vzDhveMpFNNjbpDqbcU=",
+        "lastModified": 1737658924,
+        "narHash": "sha256-/xYve4fANC1VzLOmX/bPfdLok94Nkoj14P0A9kAk/LQ=",
         "owner": "eRgo35",
         "repo": "zen-browser-flake",
-        "rev": "303c215a1b12810297191b9ce2024dce9f8d68f3",
+        "rev": "c13aee178a2a817942ac30ea518994b45f13e107",
         "type": "github"
       },
       "original": {
