@@ -78,6 +78,8 @@ if [ "$(hostname)" = "zion" ]; then
     # Enable screen blanking and set timeout to 20 minutes
     # xset s on
     xset s off
+    xset s noblank
+    xset -dpms
     # xset s 1200
 
     xidlehook \
