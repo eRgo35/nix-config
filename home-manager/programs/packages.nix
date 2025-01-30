@@ -50,11 +50,12 @@
     okular
 
     # > desktop < #
-    # firefox
+    firefox
     # whatsapp-for-linux
     telegram-desktop
     google-chrome
     chromium
+    brave
     evolution
     obsidian
     foliate
