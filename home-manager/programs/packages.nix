@@ -51,10 +51,11 @@
 
     # > desktop < #
     firefox
+    httrack
     # whatsapp-for-linux
     telegram-desktop
-    google-chrome
-    chromium
+    # google-chrome
+    # chromium
     brave
     evolution
     obsidian
@@ -62,7 +63,7 @@
     helio-workstation
     # vesktop
     equibop
-    inputs.zen-browser.packages."${system}".default
+    # inputs.zen-browser.packages."${system}".default
 
     # > gaming < #
     prismlauncher
