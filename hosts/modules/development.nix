@@ -65,7 +65,6 @@
     nixd
     nixfmt-classic
     statix
-    vulnix
     haskellPackages.dhall-nix
 
     # java
