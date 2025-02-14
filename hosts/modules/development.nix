@@ -73,5 +73,7 @@
     jdk17
     maven
     gradle
+
+    tex-fmt
   ];
 }
