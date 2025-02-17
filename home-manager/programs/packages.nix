@@ -64,6 +64,8 @@
     # vesktop
     equibop
     # inputs.zen-browser.packages."${system}".default
+    papers
+    
 
     # > gaming < #
     prismlauncher
