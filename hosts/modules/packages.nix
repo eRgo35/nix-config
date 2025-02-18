@@ -118,6 +118,8 @@
     source-han-sans
     source-han-sans-japanese
     source-han-serif-japanese
+    vistafonts
+    corefonts
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
