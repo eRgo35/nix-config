@@ -58,5 +58,8 @@
     gp = "git pull";
     gs = "git status";
     gd = "git diff";
+
+    vim = "nvim";
+    vi = "nvim";
   };
 }

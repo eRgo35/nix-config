@@ -53,7 +53,8 @@
     firefox
     httrack
     # whatsapp-for-linux
-    telegram-desktop
+    # telegram-desktop
+    kotatogram-desktop
     # google-chrome
     # chromium
     brave
