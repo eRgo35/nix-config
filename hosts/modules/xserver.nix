@@ -78,7 +78,7 @@
             owner = "eRgo35";
             repo = "dwm";
             rev = "main";
-            hash = "sha256-sMw4TvuuBlKV4Qb77gyNWRQr1VXX1dEiBUlWusKNgDQ=";
+            hash = "sha256-KFhPqs2zL5tXk5XoUKC9rO30TM0viMtLLdjQK+gX0M8=";
           };
         };
       };
